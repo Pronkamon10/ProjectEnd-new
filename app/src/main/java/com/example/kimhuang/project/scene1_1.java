@@ -2,11 +2,9 @@ package com.example.kimhuang.project;
 
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -14,6 +12,8 @@ public class scene1_1 extends AppCompatActivity {
     ImageView jantawee1, janta1, yotsawimon1;
     ImageView word1, word2, word3;
     Button btn_back, btn_next;
+    boolean flat = false;
+    boolean flats = false;
 
 
     @Override
@@ -24,7 +24,7 @@ public class scene1_1 extends AppCompatActivity {
 
         //Word
         word1 = (ImageView) findViewById(R.id.word1);
-//       word2 = (ImageView) findViewById(R.id.word2);
+        word2 = (ImageView) findViewById(R.id.word2);
         word3 = (ImageView) findViewById(R.id.word3);
 
 
@@ -35,10 +35,20 @@ public class scene1_1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    ((AnimationDrawable) jantawee1.getBackground()).stop();
-                    //change image view
-                    jantawee1.setBackgroundResource(R.drawable.jantawee1);
-                    word1.setVisibility(View.VISIBLE);
+
+                    if (flat == false) {
+                        ((AnimationDrawable) jantawee1.getBackground()).stop();
+                        flat = true;
+                        //change image view
+                        jantawee1.setBackgroundResource(R.drawable.jantawee1);
+                        word1.setVisibility(View.VISIBLE);
+                    } else {
+                        flat = false;
+                        jantawee1.setBackgroundResource(R.drawable.animate_jantawee1_1);
+                        word1.setVisibility(View.INVISIBLE);
+                        ((AnimationDrawable) jantawee1.getBackground()).start();
+                    }
+
                 } catch (Exception e) {
                 }
             }
@@ -51,25 +61,44 @@ public class scene1_1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    ((AnimationDrawable) yotsawimon1.getBackground()).stop();
-                    //change image view
-                    yotsawimon1.setBackgroundResource(R.drawable.yotsawimon1);
+                    if (flat == flat) {
+                        ((AnimationDrawable) yotsawimon1.getBackground()).stop();
+                        flat = true;
+                        //change image view
+                        yotsawimon1.setBackgroundResource(R.drawable.yotsawimon1);
+                        word2.setVisibility(View.VISIBLE);
+                    } else {
+                        flat = false;
+                        yotsawimon1.setBackgroundResource(R.drawable.animate_yotsawimon1_1);
+                        word2.setVisibility(View.INVISIBLE);
+                        ((AnimationDrawable) yotsawimon1.getBackground()).start();
+                    }
                 } catch (Exception e) {
                 }
             }
         });
 
         //janta
-        janta1= (ImageView) findViewById(R.id.janta1);
-        ((AnimationDrawable)janta1.getBackground()).start();
+        janta1 = (ImageView) findViewById(R.id.janta1);
+        ((AnimationDrawable) janta1.getBackground()).start();
         janta1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    ((AnimationDrawable) janta1.getBackground()).stop();
-                    //change image view
-                    janta1.setBackgroundResource(R.drawable.janta1);
-                    word3.setVisibility(View.VISIBLE);
+
+                    if (flats == false) {
+                        ((AnimationDrawable) janta1.getBackground()).stop();
+                        flats = true;
+                        //change image view
+                        janta1.setBackgroundResource(R.drawable.janta1);
+                        word3.setVisibility(View.VISIBLE);
+                    } else {
+                        flats = false;
+                        janta1.setBackgroundResource(R.drawable.animate_janta1_1);
+                        word3.setVisibility(View.INVISIBLE);
+                        ((AnimationDrawable) janta1.getBackground()).start();
+                    }
+
                 } catch (Exception e) {
                 }
             }
@@ -84,7 +113,7 @@ public class scene1_1 extends AppCompatActivity {
             }
         });
         btn_next = (Button) findViewById(R.id.btn_next);
-        final Intent i = new Intent(this, scene1_1.class);
+        final Intent i = new Intent(this, page1_2.class);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

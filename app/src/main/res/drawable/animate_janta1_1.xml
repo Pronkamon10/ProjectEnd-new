@@ -4,11 +4,11 @@ android:oneshot="false">
 
 <item
     android:drawable="@drawable/janta1"
-    android:duration="1000" />
+    android:duration="800" />
 
 <item
     android:drawable="@drawable/janta2"
-    android:duration="1000" />
+    android:duration="800" />
 
 
 </animation-list>
