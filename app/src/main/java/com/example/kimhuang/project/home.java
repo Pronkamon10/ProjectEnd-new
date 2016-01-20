@@ -3,6 +3,7 @@ package com.example.kimhuang.project;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 public class home extends AppCompatActivity implements View.OnClickListener {
     Button btn_play1, btn_setting1, btn_con1;
     ImageView btn_close;
+    MediaPlayer mediaPlayer;
     Intent i;
     AlertDialog.Builder builder;
 
@@ -46,14 +48,20 @@ public class home extends AppCompatActivity implements View.OnClickListener {
             case (R.id.btn_play1):
                 i = new Intent(this, page1_1.class);
                 startActivity(i);
+                mediaPlayer = MediaPlayer.create(this, R.raw.sound_click);
+                mediaPlayer.start();
                 break;
             case (R.id.btn_setting1):
                 i = new Intent(this, scene1_1.class);
                 startActivity(i);
+                mediaPlayer = MediaPlayer.create(this, R.raw.sound_click);
+                mediaPlayer.start();
                 break;
             case (R.id.btn_con1):
                 i = new Intent(this, scene1_1.class);
                 startActivity(i);
+                mediaPlayer = MediaPlayer.create(this, R.raw.sound_click);
+                mediaPlayer.start();
                 break;
             case (R.id.btn_close):
                 builder = new AlertDialog.Builder(home.this)

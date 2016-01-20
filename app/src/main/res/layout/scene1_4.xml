@@ -3,80 +3,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kimhuang.project.scene1_3">
+    tools:context="com.example.kimhuang.project.scene1_4">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/bg"/>
+        android:src="@drawable/bg" />
 
     <ImageView
         android:layout_width="500dp"
         android:layout_height="250dp"
-        android:src="@drawable/box1_3"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/box1_4" />
 
     <ImageView
-        android:id="@+id/book3"
+        android:id="@+id/book4"
         android:layout_width="match_parent"
         android:layout_height="320dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:src="@drawable/book3" />
+        android:src="@drawable/book4" />
 
     <RelativeLayout
-        android:layout_width="500dp"
-        android:layout_height="300dp"
-        android:layout_centerHorizontal="true">
+        android:layout_width="850dp"
+        android:layout_height="330dp"
+        android:layout_alignBottom="@+id/book4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp">
 
         <ImageView
-            android:id="@+id/trees1"
-            android:layout_width="230dp"
-            android:layout_height="300dp"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/trees" />
-
-        <ImageView
-            android:id="@+id/grass"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:src="@drawable/grass"
+            android:id="@+id/alga1"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/alga"
             android:layout_alignParentBottom="true" />
 
         <ImageView
             android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:src="@drawable/grass"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/grass"/>
-
+            android:layout_height="100dp"
+            android:src="@drawable/firsh"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/alga1" />
 
         <ImageView
-            android:id="@+id/house1"
-            android:layout_width="250dp"
+            android:id="@+id/sungthong4"
+            android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/animate_house" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:layout_alignBottom="@+id/book3">
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/animate_sungthong1_4"/>
 
         <ImageView
-            android:id="@+id/sungthong3"
-            android:layout_width="400dp"
-            android:layout_height="230dp"
-            android:background="@drawable/animate_sungthong1_3"
-            android:layout_centerHorizontal="true" />
+            android:id="@+id/alga2"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/alga"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
-
-
 
 
     <Button

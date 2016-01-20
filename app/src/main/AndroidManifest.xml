@@ -8,14 +8,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".page1_1"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".scene1_1"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--Home-->
         <activity
             android:name=".home"
             android:screenOrientation="landscape"
@@ -26,16 +20,55 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--page1_1-->
+        <activity
+            android:name=".page1_1"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--scene1_1-->
+        <activity
+            android:name=".scene1_1"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--page1_2-->
         <activity
             android:name=".page1_2"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--scene1_2-->
         <activity
             android:name=".scene1_2"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".page1_3" />
-        <activity android:name=".scene1_3"></activity>
+
+        <!--page1_3-->
+        <activity
+            android:name=".page1_3"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--scene1_3-->
+        <activity
+            android:name=".scene1_3"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!--page1_4-->
+        <activity
+            android:name=".page1_4"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <!--scene1_4-->
+        <activity
+            android:name=".scene1_4"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
     </application>
 
 </manifest>
