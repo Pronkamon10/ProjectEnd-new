@@ -2,6 +2,7 @@ package com.example.kimhuang.project;
 
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +13,10 @@ public class scene1_1 extends AppCompatActivity {
     ImageView jantawee1, janta1, yotsawimon1;
     ImageView word1, word2, word3;
     Button btn_back, btn_next;
-    boolean flat = false;
-    boolean flats = false;
+    MediaPlayer mediaPlayer;
+    boolean jantawee = false;
+    boolean yotsawimon = false;
+    boolean janta = false;
 
 
     @Override
@@ -36,14 +39,14 @@ public class scene1_1 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
 
-                    if (flat == false) {
+                    if (jantawee  == false) {
                         ((AnimationDrawable) jantawee1.getBackground()).stop();
-                        flat = true;
+                        jantawee  = true;
                         //change image view
                         jantawee1.setBackgroundResource(R.drawable.jantawee1);
                         word1.setVisibility(View.VISIBLE);
                     } else {
-                        flat = false;
+                        jantawee  = false;
                         jantawee1.setBackgroundResource(R.drawable.animate_jantawee1_1);
                         word1.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) jantawee1.getBackground()).start();
@@ -61,14 +64,14 @@ public class scene1_1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    if (flat == flat) {
+                    if (yotsawimon == false) {
                         ((AnimationDrawable) yotsawimon1.getBackground()).stop();
-                        flat = true;
+                        yotsawimon = true;
                         //change image view
                         yotsawimon1.setBackgroundResource(R.drawable.yotsawimon1);
                         word2.setVisibility(View.VISIBLE);
                     } else {
-                        flat = false;
+                        yotsawimon = false;
                         yotsawimon1.setBackgroundResource(R.drawable.animate_yotsawimon1_1);
                         word2.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) yotsawimon1.getBackground()).start();
@@ -86,14 +89,15 @@ public class scene1_1 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
 
-                    if (flats == false) {
+                    if (janta == false) {
                         ((AnimationDrawable) janta1.getBackground()).stop();
-                        flats = true;
+                        janta = true;
                         //change image view
                         janta1.setBackgroundResource(R.drawable.janta1);
                         word3.setVisibility(View.VISIBLE);
+
                     } else {
-                        flats = false;
+                        janta = false;
                         janta1.setBackgroundResource(R.drawable.animate_janta1_1);
                         word3.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) janta1.getBackground()).start();

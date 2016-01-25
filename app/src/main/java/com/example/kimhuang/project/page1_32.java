@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class page1_3 extends AppCompatActivity {
+public class page1_32 extends AppCompatActivity {
     Button btn_back, btn_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page1_3);
+        setContentView(R.layout.page1_32);
 
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -22,7 +22,7 @@ public class page1_3 extends AppCompatActivity {
             }
         });
         btn_next = (Button) findViewById(R.id.btn_next);
-        final Intent i = new Intent(this, page1_32.class);
+        final Intent i = new Intent(this, scene1_3.class);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

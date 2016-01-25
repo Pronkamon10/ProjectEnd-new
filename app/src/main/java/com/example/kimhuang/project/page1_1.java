@@ -27,6 +27,9 @@ public class page1_1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(i);
+//                overridePendingTransition(android.R.anim.slide_out_right ,android.R.anim.fade_out);
+
+
             }
         });
     }

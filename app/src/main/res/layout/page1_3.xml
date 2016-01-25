@@ -12,11 +12,11 @@
         android:scaleType="fitXY"/>
 
     <ImageView
-        android:layout_width="800dp"
+        android:layout_width="850dp"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:scaleType="fitXY"
-        android:src="@drawable/page1_1" />
+        android:src="@drawable/page1_3" />
 
     <Button
         android:id="@+id/btn_back"

@@ -40,12 +40,6 @@
             android:src="@drawable/alga"
             android:layout_alignParentBottom="true" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/firsh"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/alga1" />
 
         <ImageView
             android:id="@+id/sungthong4"

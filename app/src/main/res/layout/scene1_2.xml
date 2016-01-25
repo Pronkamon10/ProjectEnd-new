@@ -60,11 +60,43 @@
         android:src="@drawable/jantawee3" />
 
     <ImageView
+        android:id="@+id/oldwomen1"
         android:layout_width="180dp"
         android:layout_height="250dp"
         android:layout_toRightOf="@+id/oldmen1"
         android:layout_centerVertical="true"
-        android:src="@drawable/oldwomen1" />
+        android:background="@drawable/animate_oldwomen" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" />
+
+
+        <RelativeLayout
+            android:layout_width="570dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_horizontal|right"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/word4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/word4"
+                android:visibility="gone"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_back"
