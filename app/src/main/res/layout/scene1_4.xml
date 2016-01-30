@@ -27,11 +27,18 @@
         android:src="@drawable/book4" />
 
     <RelativeLayout
-        android:layout_width="850dp"
+        android:layout_width="750dp"
         android:layout_height="330dp"
         android:layout_alignBottom="@+id/book4"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp">
+
+        <ImageView
+            android:id="@+id/firsh1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/animate_frish"
+            android:layout_alignLeft="@+id/sungthong4"/>
 
         <ImageView
             android:id="@+id/alga1"
@@ -40,17 +47,30 @@
             android:src="@drawable/alga"
             android:layout_alignParentBottom="true" />
 
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/firsh"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/alga1"/>
+
 
         <ImageView
             android:id="@+id/sungthong4"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="350dp"
+            android:layout_height="250dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="@drawable/animate_sungthong1_4"/>
 
         <ImageView
-            android:id="@+id/alga2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/firsh"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+
+        <ImageView
             android:layout_width="150dp"
             android:layout_height="200dp"
             android:src="@drawable/alga"
@@ -62,7 +82,7 @@
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
@@ -71,7 +91,7 @@
 
     <Button
         android:id="@+id/btn_next"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"

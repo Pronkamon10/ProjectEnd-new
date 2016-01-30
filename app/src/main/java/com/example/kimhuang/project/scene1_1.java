@@ -1,29 +1,40 @@
 package com.example.kimhuang.project;
 
+import android.annotation.TargetApi;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
+import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class scene1_1 extends AppCompatActivity {
     ImageView jantawee1, janta1, yotsawimon1;
     ImageView word1, word2, word3;
-    Button btn_back, btn_next;
+    Button btn_back, btn_next, btn_pause;
     MediaPlayer mediaPlayer;
+    //boolean
     boolean jantawee = false;
     boolean yotsawimon = false;
     boolean janta = false;
-
+    //Dialog
+    AlertDialog.Builder builder;
+    Dialog dialog;
+    Button dialogset, dialogexit, dialoghome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scenc1_1);
-
 
         //Word
         word1 = (ImageView) findViewById(R.id.word1);
@@ -39,14 +50,14 @@ public class scene1_1 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
 
-                    if (jantawee  == false) {
+                    if (jantawee == false) {
                         ((AnimationDrawable) jantawee1.getBackground()).stop();
-                        jantawee  = true;
+                        jantawee = true;
                         //change image view
                         jantawee1.setBackgroundResource(R.drawable.jantawee1);
                         word1.setVisibility(View.VISIBLE);
                     } else {
-                        jantawee  = false;
+                        jantawee = false;
                         jantawee1.setBackgroundResource(R.drawable.animate_jantawee1_1);
                         word1.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) jantawee1.getBackground()).start();
@@ -103,12 +114,54 @@ public class scene1_1 extends AppCompatActivity {
                         ((AnimationDrawable) janta1.getBackground()).start();
                     }
 
+
                 } catch (Exception e) {
                 }
             }
         });
 
         //Button
+        btn_pause = (Button) findViewById(R.id.btn_pause);
+        builder = new AlertDialog.Builder(this);
+        dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        btn_pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.setContentView(R.layout.btndialog);
+
+                //TODO findViewBy
+                dialogexit = (Button) dialog.findViewById(R.id.btn_exit);
+                dialoghome = (Button) dialog.findViewById(R.id.btn_home);
+                dialogset = (Button) dialog.findViewById(R.id.btn_setting);
+
+                dialogexit.setOnClickListener(new View.OnClickListener() {
+
+                    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+                    @Override
+                    public void onClick(View v) {
+                        finishAffinity();
+                    }
+                });
+
+                dialoghome.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getApplicationContext(), Map1.class);
+                        startActivity(i);
+                    }
+                });
+                dialogset.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
+
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +177,8 @@ public class scene1_1 extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
     }
+
 }
 

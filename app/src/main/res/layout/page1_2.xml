@@ -20,7 +20,7 @@ tools:context=".page1_1">
 
 <Button
     android:id="@+id/btn_back"
-    android:layout_width="60dp"
+    android:layout_width="70dp"
     android:layout_height="70dp"
     android:layout_alignParentBottom="true"
     android:layout_marginLeft="10dp"
@@ -29,7 +29,7 @@ tools:context=".page1_1">
 
 <Button
     android:id="@+id/btn_next"
-    android:layout_width="60dp"
+    android:layout_width="70dp"
     android:layout_height="70dp"
     android:layout_alignParentBottom="true"
     android:layout_alignParentRight="true"

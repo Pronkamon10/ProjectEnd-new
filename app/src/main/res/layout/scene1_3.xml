@@ -11,6 +11,14 @@
         android:scaleType="fitXY"
         android:src="@drawable/bg"/>
 
+    <Button
+        android:id="@+id/pause"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button_pause"
+        android:layout_alignParentRight="true"/>
+
+
     <ImageView
         android:layout_width="500dp"
         android:layout_height="250dp"
@@ -58,13 +66,14 @@
             android:layout_width="250dp"
             android:layout_height="300dp"
             android:layout_alignParentRight="true"
-            android:background="@drawable/animate_house" />
+            android:background="@drawable/animate_house"/>
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="600dp"
         android:layout_height="320dp"
+        android:layout_centerHorizontal="true"
         android:layout_alignBottom="@+id/book3">
 
         <ImageView
@@ -74,14 +83,19 @@
             android:background="@drawable/animate_sungthong1_3"
             android:layout_centerHorizontal="true" />
 
+        <ImageView
+            android:id="@+id/chicken1"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/animate_chicken"/>
+
     </RelativeLayout>
-
-
 
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
@@ -90,7 +104,7 @@
 
     <Button
         android:id="@+id/btn_next"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"

@@ -53,10 +53,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!-- page1_32 -->
-        <activity android:name=".page1_32"
+        <activity
+            android:name=".page1_32"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!-- scene1_3 -->
         <activity
@@ -76,6 +76,11 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
+        <!--map1-->
+        <activity android:name=".Map1"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

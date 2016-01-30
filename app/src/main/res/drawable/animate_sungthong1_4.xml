@@ -5,9 +5,11 @@
     <item
         android:drawable="@drawable/sungthong4"
         android:duration="800" />
-
     <item
         android:drawable="@drawable/sungthong5"
+        android:duration="800" />
+    <item
+        android:drawable="@drawable/sungthong6"
         android:duration="800" />
 
 </animation-list>

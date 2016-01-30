@@ -12,8 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class home extends AppCompatActivity implements View.OnClickListener {
-    Button btn_play1, btn_setting1, btn_con1;
-    ImageView btn_close;
+    Button btn_play1, btn_setting1, btn_con1,btn_close;
     MediaPlayer mediaPlayer;
     Intent i;
     AlertDialog.Builder builder;
@@ -36,7 +35,7 @@ public class home extends AppCompatActivity implements View.OnClickListener {
         btn_con1.setOnClickListener(this);
 
         //button__close
-        btn_close = (ImageView) findViewById(R.id.btn_close);
+        btn_close = (Button) findViewById(R.id.btn_close);
         btn_close.setOnClickListener(this);
 
     }
@@ -46,7 +45,7 @@ public class home extends AppCompatActivity implements View.OnClickListener {
         int id = v.getId();
         switch (id) {
             case (R.id.btn_play1):
-                i = new Intent(this, page1_1.class);
+                i = new Intent(this, Map1.class);
                 startActivity(i);
                 mediaPlayer = MediaPlayer.create(this, R.raw.sound_click);
                 mediaPlayer.start();
