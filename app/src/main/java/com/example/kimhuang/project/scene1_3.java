@@ -1,10 +1,12 @@
 package com.example.kimhuang.project;
 
+import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
-import android.net.Uri;
+import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,19 +15,21 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
-
 public class scene1_3 extends AppCompatActivity {
     ImageView house1, sungthong3, chicken1;
-    Button btn_back, btn_next, btn_close;
+    Button btn_back, btn_next, btn_close,btn_pause;
+    MediaPlayer mediaPlayer;
+    //boolean
     boolean chicken = false;
     boolean house = false;
+    //Dialog
+    AlertDialog.Builder builder;
+    Dialog dialog;
+    Button dialogset, dialogexit, dialoghome;
     Dialog knowlesst;
     int pindex = 0;
     int[] resChiken = {R.drawable.knowless_ck1, R.drawable.knowless_ck2, R.drawable.knowless_ck3};
-    MediaPlayer mediaPlayer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +137,47 @@ public class scene1_3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 knowlesst.cancel();
+            }
+        });
+
+        //button pause
+        btn_pause = (Button) findViewById(R.id.btn_pause);
+        builder = new AlertDialog.Builder(this);
+        dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        btn_pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.setContentView(R.layout.btndialog);
+
+                //TODO findViewBy
+                dialogexit = (Button) dialog.findViewById(R.id.btn_exit);
+                dialoghome = (Button) dialog.findViewById(R.id.btn_home);
+                dialogset = (Button) dialog.findViewById(R.id.btn_setting);
+
+                dialogexit.setOnClickListener(new View.OnClickListener() {
+                    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+                    @Override
+                    public void onClick(View v) {
+                        finishAffinity();
+                    }
+                });
+
+                dialoghome.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getApplicationContext(), map1.class);
+                        startActivity(i);
+                    }
+                });
+                dialogset.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
             }
         });
 

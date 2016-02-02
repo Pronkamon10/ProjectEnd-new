@@ -2,7 +2,6 @@ package com.example.kimhuang.project;
 
 import android.annotation.TargetApi;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
@@ -10,17 +9,15 @@ import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class scene1_1 extends AppCompatActivity {
     ImageView jantawee1, janta1, yotsawimon1;
     ImageView word1, word2, word3;
-    Button btn_back, btn_next, btn_pause;
+    Button btn_back, btn_next,btn_pause;
     MediaPlayer mediaPlayer;
     //boolean
     boolean jantawee = false;
@@ -29,7 +26,7 @@ public class scene1_1 extends AppCompatActivity {
     //Dialog
     AlertDialog.Builder builder;
     Dialog dialog;
-    Button dialogset, dialogexit, dialoghome;
+    Button dialogset, dialogexit, dialoghome, dialogclose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +117,7 @@ public class scene1_1 extends AppCompatActivity {
             }
         });
 
-        //Button
+        //button_pause
         btn_pause = (Button) findViewById(R.id.btn_pause);
         builder = new AlertDialog.Builder(this);
         dialog = new Dialog(this);
@@ -135,7 +132,9 @@ public class scene1_1 extends AppCompatActivity {
                 dialogexit = (Button) dialog.findViewById(R.id.btn_exit);
                 dialoghome = (Button) dialog.findViewById(R.id.btn_home);
                 dialogset = (Button) dialog.findViewById(R.id.btn_setting);
+                dialogclose = (Button)dialog.findViewById(R.id.btn_close);
 
+                //button_exit
                 dialogexit.setOnClickListener(new View.OnClickListener() {
 
                     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -145,23 +144,35 @@ public class scene1_1 extends AppCompatActivity {
                     }
                 });
 
+                //button_home
                 dialoghome.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(getApplicationContext(), Map1.class);
+                        Intent i = new Intent(getApplicationContext(), map1.class);
                         startActivity(i);
                     }
                 });
+
+                //button_setting
                 dialogset.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
                     }
                 });
+
+//                //button_close
+//                dialogclose.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                    }
+//                });
                 dialog.show();
             }
         });
 
+
+        //button_back
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,6 +180,8 @@ public class scene1_1 extends AppCompatActivity {
                 finish();
             }
         });
+
+        //button_next
         btn_next = (Button) findViewById(R.id.btn_next);
         final Intent i = new Intent(this, page1_2.class);
         btn_next.setOnClickListener(new View.OnClickListener() {

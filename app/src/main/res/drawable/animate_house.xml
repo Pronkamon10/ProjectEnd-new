@@ -9,6 +9,4 @@
     <item
         android:drawable="@drawable/house2"
         android:duration="800" />
-
-
 </animation-list>

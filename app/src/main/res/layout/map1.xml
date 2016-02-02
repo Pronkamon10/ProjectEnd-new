@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kimhuang.project.Map1">
+    tools:context=".map1">
 
     <ImageView
         android:layout_width="match_parent"
@@ -32,15 +32,15 @@
             <ImageView
                 android:id="@+id/palaces"
                 android:layout_width="300dp"
-                android:layout_height="200dp"
-                android:layout_marginLeft="30dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="50dp"
                 android:background="@drawable/animate_palaces"/>
 
             <ImageView
-                android:id="@+id/trees1"
-                android:layout_width="280dp"
-                android:layout_height="250dp"
-                android:src="@drawable/trees1"
+                android:id="@+id/trees"
+                android:layout_width="290dp"
+                android:layout_height="190dp"
+                android:background="@drawable/animate_trees"
                 android:layout_alignParentRight="true"/>
 
         </RelativeLayout>
@@ -57,6 +57,14 @@
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/animate_house2"
                 android:layout_centerVertical="true"/>
+
+            <ImageView
+                android:id="@+id/sea"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:background="@drawable/animate_sea"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true" />
 
         </RelativeLayout>
 

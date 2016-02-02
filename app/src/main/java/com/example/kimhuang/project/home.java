@@ -1,15 +1,15 @@
 package com.example.kimhuang.project;
 
+import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 public class home extends AppCompatActivity implements View.OnClickListener {
     Button btn_play1, btn_setting1, btn_con1,btn_close;
@@ -45,7 +45,7 @@ public class home extends AppCompatActivity implements View.OnClickListener {
         int id = v.getId();
         switch (id) {
             case (R.id.btn_play1):
-                i = new Intent(this, Map1.class);
+                i = new Intent(this, map1.class);
                 startActivity(i);
                 mediaPlayer = MediaPlayer.create(this, R.raw.sound_click);
                 mediaPlayer.start();
@@ -57,7 +57,7 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                 mediaPlayer.start();
                 break;
             case (R.id.btn_con1):
-                i = new Intent(this, scene1_1.class);
+                i = new Intent(this, contact.class);
                 startActivity(i);
                 mediaPlayer = MediaPlayer.create(this, R.raw.sound_click);
                 mediaPlayer.start();
@@ -66,9 +66,10 @@ public class home extends AppCompatActivity implements View.OnClickListener {
                 builder = new AlertDialog.Builder(home.this)
                         .setMessage("คุณต้องการออกจากเกม หรือไม่?")
                         .setPositiveButton("ใช่", new DialogInterface.OnClickListener() {
+                            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                finish();
+                                finishAffinity();
                             }
                         })
                         .setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {

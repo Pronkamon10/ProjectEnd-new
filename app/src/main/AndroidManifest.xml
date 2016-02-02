@@ -76,11 +76,12 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
-        <!--map1-->
-        <activity android:name=".Map1"
+        <!-- map1 -->
+        <activity
+            android:name=".map1"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".contact"></activity>
     </application>
 
 </manifest>
