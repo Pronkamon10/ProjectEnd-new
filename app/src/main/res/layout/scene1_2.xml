@@ -15,8 +15,8 @@
         android:id="@+id/btn_pause"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:background="@drawable/button_pause"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_pause" />
 
     <ImageView
         android:layout_width="500dp"
@@ -40,12 +40,12 @@
         <ImageView
             android:id="@+id/trees1"
             android:layout_width="250dp"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:src="@drawable/trees" />
 
         <ImageView
-            android:layout_width="230dp"
-            android:layout_height="300dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_alignParentRight="true"
             android:src="@drawable/trees" />
 
@@ -60,31 +60,32 @@
         android:background="@drawable/animate_oldmen" />
 
     <ImageView
+        android:id="@+id/jantawee2"
         android:layout_width="120dp"
         android:layout_height="250dp"
-        android:layout_toLeftOf="@+id/oldmen1"
         android:layout_centerVertical="true"
-        android:src="@drawable/jantawee3" />
+        android:layout_toLeftOf="@+id/oldmen1"
+        android:background="@drawable/animate_jantawee1_2" />
+
 
     <ImageView
         android:id="@+id/oldwomen1"
         android:layout_width="160dp"
         android:layout_height="250dp"
-        android:layout_toRightOf="@+id/oldmen1"
         android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/oldmen1"
         android:background="@drawable/animate_oldwomen" />
 
+    <!--word4-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="3">
-
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1" />
-
         <RelativeLayout
             android:layout_width="500dp"
             android:layout_height="0dp"
@@ -92,17 +93,40 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center_horizontal|right"
             android:layout_weight="1">
-
             <ImageView
                 android:id="@+id/word4"
                 android:layout_width="350dp"
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/word4"
-                android:visibility="gone"/>
-
+                android:visibility="gone" />
         </RelativeLayout>
+    </LinearLayout>
 
+    <!--word5-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.08" />
+        <RelativeLayout
+            android:layout_width="400dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_weight="0.2">
+
+            <ImageView
+                android:id="@+id/word5"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/word5"
+                android:visibility="gone" />
+        </RelativeLayout>
     </LinearLayout>
 
     <Button

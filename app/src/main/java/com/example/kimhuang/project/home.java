@@ -45,7 +45,7 @@ public class home extends AppCompatActivity implements View.OnClickListener {
         int id = v.getId();
         switch (id) {
             case (R.id.btn_play1):
-                i = new Intent(this, map1.class);
+                i = new Intent(this, DisableSwipeIntro2.class);
                 startActivity(i);
                 mediaPlayer = MediaPlayer.create(this, R.raw.sound_click);
                 mediaPlayer.start();

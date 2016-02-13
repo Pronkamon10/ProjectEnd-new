@@ -15,8 +15,8 @@
         android:id="@+id/btn_pause"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:background="@drawable/button_pause"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_pause" />
 
 
     <ImageView
@@ -45,23 +45,22 @@
             android:id="@+id/firsh1"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/animate_frish"
-            android:layout_alignLeft="@+id/sungthong4"/>
+            android:layout_alignLeft="@+id/sungthong4"
+            android:background="@drawable/animate_firsh" />
 
         <ImageView
             android:id="@+id/alga1"
             android:layout_width="150dp"
             android:layout_height="200dp"
-            android:src="@drawable/alga"
-            android:layout_alignParentBottom="true" />
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/alga" />
 
         <ImageView
+            android:id="@+id/firsh2"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/firsh"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/alga1"/>
-
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/alga1"
+            android:background="@drawable/animate_firsh1" />
 
         <ImageView
             android:id="@+id/sungthong4"
@@ -69,24 +68,61 @@
             android:layout_height="250dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/animate_sungthong1_4"/>
+            android:background="@drawable/animate_sungthong1_4" />
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/firsh"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"/>
+            android:src="@drawable/firsh" />
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="200dp"
-            android:src="@drawable/alga"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:src="@drawable/alga" />
+
+        <!--word7-->
+        <ImageView
+            android:id="@+id/word7"
+            android:layout_width="300dp"
+            android:layout_height="120dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/word7"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 
+    <!--word6-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.05" />
+
+        <RelativeLayout
+            android:layout_width="350dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_weight="0.2">
+
+            <ImageView
+                android:id="@+id/word6"
+                android:layout_width="250dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/word6"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_back"

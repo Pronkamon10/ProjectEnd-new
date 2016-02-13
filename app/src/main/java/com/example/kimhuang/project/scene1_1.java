@@ -162,11 +162,12 @@ public class scene1_1 extends AppCompatActivity {
                 });
 
 //                //button_close
-//                dialogclose.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                    }
-//                });
+                dialogclose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                    }
+                });
                 dialog.show();
             }
         });
@@ -192,6 +193,8 @@ public class scene1_1 extends AppCompatActivity {
         });
 
     }
+
+
 
 }
 

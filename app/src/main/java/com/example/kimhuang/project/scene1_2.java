@@ -14,15 +14,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class scene1_2 extends AppCompatActivity {
-    ImageView oldmen1, oldwomen1;
-    ImageView word4;
+    ImageView oldmen1, oldwomen1,jantawee2;
+    ImageView word4, word5;
     Button btn_back, btn_next, btn_pause;
     //boolean
     boolean oldwomen = false;
+    boolean jantawee = false;
     //Dialog
     AlertDialog.Builder builder;
     Dialog dialog;
-    Button dialogset, dialogexit, dialoghome;
+    Button dialogset, dialogexit, dialoghome, dialogclose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,9 @@ public class scene1_2 extends AppCompatActivity {
 
         //word4
         word4 = (ImageView) findViewById(R.id.word4);
+
+        //word5
+        word5 = (ImageView) findViewById(R.id.word5);
 
         //oldmen
         oldmen1 = (ImageView) findViewById(R.id.oldmen1);
@@ -55,6 +59,32 @@ public class scene1_2 extends AppCompatActivity {
                         oldwomen1.setBackgroundResource(R.drawable.animate_oldwomen);
                         word4.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) oldwomen1.getBackground()).start();
+                    }
+
+                } catch (Exception e) {
+                }
+            }
+        });
+
+        //jantawee
+        jantawee2 = (ImageView) findViewById(R.id.jantawee2);
+        ((AnimationDrawable) jantawee2.getBackground()).start();
+        jantawee2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+
+                    if (jantawee == false) {
+                        ((AnimationDrawable) jantawee2.getBackground()).stop();
+                        jantawee = true;
+                        //change image view
+                        jantawee2.setBackgroundResource(R.drawable.jantawee3);
+                        word5.setVisibility(View.VISIBLE);
+                    } else {
+                        jantawee = false;
+                        jantawee2.setBackgroundResource(R.drawable.animate_jantawee1_2);
+                        word5.setVisibility(View.INVISIBLE);
+                        ((AnimationDrawable) jantawee2.getBackground()).start();
                     }
 
                 } catch (Exception e) {
@@ -97,6 +127,14 @@ public class scene1_2 extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
+                    }
+                });
+
+                //button_close
+                dialogclose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
                     }
                 });
                 dialog.show();

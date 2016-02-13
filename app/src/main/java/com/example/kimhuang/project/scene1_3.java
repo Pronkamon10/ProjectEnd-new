@@ -25,7 +25,7 @@ public class scene1_3 extends AppCompatActivity {
     //Dialog
     AlertDialog.Builder builder;
     Dialog dialog;
-    Button dialogset, dialogexit, dialoghome;
+    Button dialogset, dialogexit, dialoghome, dialogclose;
     Dialog knowlesst;
     int pindex = 0;
     int[] resChiken = {R.drawable.knowless_ck1, R.drawable.knowless_ck2, R.drawable.knowless_ck3};
@@ -175,6 +175,14 @@ public class scene1_3 extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
+                    }
+                });
+
+                //button_close
+                dialogclose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
                     }
                 });
                 dialog.show();
