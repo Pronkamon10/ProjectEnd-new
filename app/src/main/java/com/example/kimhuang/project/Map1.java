@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class map1 extends AppCompatActivity {
-    ImageView palaces, house, trees, sea;
+    ImageView palaces, house, shellsung, alga1;
     Button btn_back;
 
     @Override
@@ -19,7 +19,6 @@ public class map1 extends AppCompatActivity {
 
         //palaces
         palaces = (ImageView)findViewById(R.id.palaces);
-        ((AnimationDrawable)palaces.getBackground()).start();
         final Intent i = new Intent(this, page1_1.class);
         palaces.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +29,6 @@ public class map1 extends AppCompatActivity {
 
         //house
         house = (ImageView)findViewById(R.id.house);
-        ((AnimationDrawable)house.getBackground()).start();
         final Intent c = new Intent(this, page1_3.class);
         house.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,23 +36,21 @@ public class map1 extends AppCompatActivity {
                 startActivity(c);
             }
         });
-
-        //trees
-        trees = (ImageView)findViewById(R.id.trees);
-        ((AnimationDrawable)trees.getBackground()).start();
+//
+//        //trees
+        shellsung = (ImageView)findViewById(R.id.shellsung);
         final Intent a = new Intent(this,page1_2.class);
-        trees.setOnClickListener(new View.OnClickListener() {
+        shellsung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(a);
             }
         });
 
-        //sea
-        sea = (ImageView)findViewById(R.id.sea);
-        ((AnimationDrawable)sea.getBackground()).start();
+//        //alga
+        alga1 = (ImageView)findViewById(R.id.alga1);
         final Intent e = new Intent(this,page1_4.class);
-        sea.setOnClickListener(new View.OnClickListener() {
+        alga1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(e);

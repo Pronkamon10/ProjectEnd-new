@@ -3,6 +3,7 @@ package com.example.kimhuang.project;
 import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,9 +11,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 
 public class page1_2 extends AppCompatActivity {
     Button btn_back, btn_next,btn_pause;
+    ToggleButton btn_music;
+    MediaPlayer mediaPlayer;
     //Dialog
     AlertDialog.Builder builder;
     Dialog dialog;
@@ -22,6 +27,21 @@ public class page1_2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page1_2);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.scene2);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
+
+        /// btn_music
+        btn_music = (ToggleButton) findViewById(R.id.btn_music);
+        btn_music.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+                if (arg1) {
+                    mediaPlayer.start();
+                } else
+                    mediaPlayer.pause();
+            }
+        });
 
         //button_pause
         btn_pause = (Button) findViewById(R.id.btn_pause);
@@ -93,5 +113,21 @@ public class page1_2 extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    public void onResume() {
+        super.onResume();
+        if(btn_music.isChecked())
+            mediaPlayer.start();
+    }
+    public void onPause() {
+        super.onPause();
+        mediaPlayer.pause();
+    }
+
+    public void onDestroy() {
+        super.onDestroy();
+        mediaPlayer.stop();
+        mediaPlayer.release();
+        mediaPlayer = null;
     }
 }

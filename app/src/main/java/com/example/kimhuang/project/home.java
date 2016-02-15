@@ -13,7 +13,6 @@ import android.widget.Button;
 
 public class home extends AppCompatActivity implements View.OnClickListener {
     Button btn_play1, btn_setting1, btn_con1,btn_close;
-    MediaPlayer mediaPlayer;
     Intent i;
     AlertDialog.Builder builder;
 
@@ -37,7 +36,6 @@ public class home extends AppCompatActivity implements View.OnClickListener {
         //button__close
         btn_close = (Button) findViewById(R.id.btn_close);
         btn_close.setOnClickListener(this);
-
     }
 
     @Override
@@ -47,20 +45,14 @@ public class home extends AppCompatActivity implements View.OnClickListener {
             case (R.id.btn_play1):
                 i = new Intent(this, DisableSwipeIntro2.class);
                 startActivity(i);
-                mediaPlayer = MediaPlayer.create(this, R.raw.sound_click);
-                mediaPlayer.start();
                 break;
             case (R.id.btn_setting1):
                 i = new Intent(this, scene1_1.class);
                 startActivity(i);
-                mediaPlayer = MediaPlayer.create(this, R.raw.sound_click);
-                mediaPlayer.start();
                 break;
             case (R.id.btn_con1):
                 i = new Intent(this, contact.class);
                 startActivity(i);
-                mediaPlayer = MediaPlayer.create(this, R.raw.sound_click);
-                mediaPlayer.start();
                 break;
             case (R.id.btn_close):
                 builder = new AlertDialog.Builder(home.this)
