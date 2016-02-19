@@ -39,7 +39,7 @@ public class DisableSwipeIntro2 extends AppCompatActivity {
              if (position == 0) {
                     getSupportFragmentManager().beginTransaction()
                             .add(R.id.contentContainer, new example2())
-                            .commit();
+                             .commit();
                     position += 1;
                 } else if (position == 1) {
                     getSupportFragmentManager().beginTransaction()
