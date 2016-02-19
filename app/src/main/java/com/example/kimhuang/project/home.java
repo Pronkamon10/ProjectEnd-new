@@ -33,6 +33,7 @@ public class home extends AppCompatActivity implements View.OnClickListener {
         btn_con1 = (Button) findViewById(R.id.btn_con1);
         btn_con1.setOnClickListener(this);
 
+
         //button__close
         btn_close = (Button) findViewById(R.id.btn_close);
         btn_close.setOnClickListener(this);

@@ -72,6 +72,8 @@ public class scene1_3 extends AppCompatActivity {
         chicken1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.rooster);
+                mediaPlayer.start();
                 try {
                     if (chicken = false) {
                         ((AnimationDrawable) chicken1.getBackground()).stop();

@@ -29,7 +29,7 @@ public class map1 extends AppCompatActivity {
 
         //house
         house = (ImageView)findViewById(R.id.house);
-        final Intent c = new Intent(this, page1_3.class);
+        final Intent c = new Intent(this, page1_2.class);
         house.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +39,7 @@ public class map1 extends AppCompatActivity {
 //
 //        //trees
         shellsung = (ImageView)findViewById(R.id.shellsung);
-        final Intent a = new Intent(this,page1_2.class);
+        final Intent a = new Intent(this,page1_3.class);
         shellsung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,6 +1,8 @@
 package com.example.kimhuang.project;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,15 +11,23 @@ import com.github.paolorotolo.appintro.AppIntroFragment;
 import com.github.paolorotolo.appintro.AppIntroViewPager;
 
 public class DisableSwipeIntro2 extends AppIntro2 {
-
+    SharedPreferences sp;
 
     @Override
     public void init(Bundle savedInstanceState) {
+        initSaveConfig();
+        int done = sp.getInt("done",-1);
+        if (done == 1)
+            startActivity(new Intent(this, map1.class));
+
         addSlide(SampleSlide.newInstance(R.layout.example));
         addSlide(SampleSlide.newInstance(R.layout.example2));
         addSlide(SampleSlide.newInstance(R.layout.example3));
         addSlide(SampleSlide.newInstance(R.layout.example4));
-        
+    }
+
+    private void initSaveConfig() {
+        sp = DisableSwipeIntro2.this.getPreferences(Context.MODE_PRIVATE);
     }
 
     private void loadMainActivity() {
@@ -27,8 +37,14 @@ public class DisableSwipeIntro2 extends AppIntro2 {
 
     @Override
     public void onDonePressed() {
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt("done",1);
+        editor.commit();
+
         loadMainActivity();
+        finish();
     }
+
 
     @Override
     public void onNextPressed() {

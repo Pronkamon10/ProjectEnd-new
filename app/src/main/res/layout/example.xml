@@ -49,7 +49,7 @@
                     android:layout_height="50dp"
                     android:layout_alignBottom="@+id/janta1"
                     android:layout_toLeftOf="@+id/janta1"
-                    android:background="@drawable/animate_figer" />
+                    android:src="@drawable/figer_noemal" />
 
             </RelativeLayout>
         </LinearLayout>
