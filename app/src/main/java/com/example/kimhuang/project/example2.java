@@ -8,9 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-/**
- * Created by Kimhuang on 8/2/2559.
- */
 public class example2 extends Fragment {
     ImageView figer, women1;
 

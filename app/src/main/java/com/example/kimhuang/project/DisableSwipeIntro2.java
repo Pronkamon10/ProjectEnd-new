@@ -1,80 +1,67 @@
 package com.example.kimhuang.project;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 
-import com.github.paolorotolo.appintro.AppIntro2;
-import com.github.paolorotolo.appintro.AppIntroFragment;
-import com.github.paolorotolo.appintro.AppIntroViewPager;
+public class DisableSwipeIntro2 extends AppCompatActivity {
 
-public class DisableSwipeIntro2 extends AppIntro2 {
     SharedPreferences sp;
 
-    @Override
-    public void init(Bundle savedInstanceState) {
-        initSaveConfig();
-        int done = sp.getInt("done",-1);
-        if (done == 1)
-            startActivity(new Intent(this, map1.class));
-
-        addSlide(SampleSlide.newInstance(R.layout.example));
-        addSlide(SampleSlide.newInstance(R.layout.example2));
-        addSlide(SampleSlide.newInstance(R.layout.example3));
-        addSlide(SampleSlide.newInstance(R.layout.example4));
-    }
-
-    private void initSaveConfig() {
-        sp = DisableSwipeIntro2.this.getPreferences(Context.MODE_PRIVATE);
-    }
-
-    private void loadMainActivity() {
-        Intent intent = new Intent(this, map1.class);
-        startActivity(intent);
-    }
+    private Button btnNext;
+    private Button btnDone;
+    private int position;
 
     @Override
-    public void onDonePressed() {
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putInt("done",1);
-        editor.commit();
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.disable_swip_intro);
 
-        loadMainActivity();
-        finish();
-    }
+        initInstance();
 
-
-    @Override
-    public void onNextPressed() {
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.contentContainer, new example())
+                .commit();
 
     }
 
-    @Override
-    public void onSlideChanged() {
+    private void initInstance() {
+        position = 0;
+        btnNext = (Button) findViewById(R.id.btnNext);
+        btnDone = (Button) findViewById(R.id.btnDone);
 
-    }
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             if (position == 0) {
+                    getSupportFragmentManager().beginTransaction()
+                            .add(R.id.contentContainer, new example2())
+                            .commit();
+                    position += 1;
+                } else if (position == 1) {
+                    getSupportFragmentManager().beginTransaction()
+                            .add(R.id.contentContainer, new example3())
+                            .commit();
+                    position += 1;
+                }else if(position == 2) {
+                    getSupportFragmentManager().beginTransaction()
+                            .add(R.id.contentContainer, new example4())
+                            .commit();
+                    position += 1;
+                 btnNext.setVisibility(View.GONE);
+                 btnDone.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
-    public void getStarted(View v) {
-        loadMainActivity();
-    }
-
-    public void toggleNextPageSwipeLock(View v) {
-        AppIntroViewPager pager = getPager();
-        boolean pagingState = pager.isNextPagingEnabled();
-        setNextPageSwipeLock(pagingState);
-    }
-
-    public void toggleSwipeLock(View v) {
-        AppIntroViewPager pager = getPager();
-        boolean pagingState = pager.isPagingEnabled();
-        setSwipeLock(pagingState);
-    }
-
-    public void toggleProgressButton(View v) {
-        boolean progressButtonState = isProgressButtonEnabled();
-        progressButtonState = !progressButtonState;
-        setProgressButtonEnabled(progressButtonState);
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(btnDone.getContext(), map1.class));
+            }
+        });
     }
 }
