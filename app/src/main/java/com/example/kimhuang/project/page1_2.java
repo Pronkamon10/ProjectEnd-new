@@ -22,6 +22,7 @@ public class page1_2 extends AppCompatActivity {
     AlertDialog.Builder builder;
     Dialog dialog;
     Button dialogset, dialogexit, dialoghome, dialogclose;
+    boolean isOpen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +37,15 @@ public class page1_2 extends AppCompatActivity {
         btn_music = (ToggleButton) findViewById(R.id.btn_music);
         btn_music.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-                if (arg1) {
+                if (isOpen == true) {
                     mediaPlayer.start();
-                } else
+                    btn_music.setBackgroundResource(R.drawable.btn_music);
+                    isOpen = false;
+                } else {
                     mediaPlayer.pause();
+                    btn_music.setBackgroundResource(R.drawable.btn_music_act);
+                    isOpen = true;
+                }
             }
         });
 
