@@ -42,9 +42,7 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:src="@drawable/alga1"/>
-
     </RelativeLayout>
-
 
     <Button
         android:id="@+id/btn_back"

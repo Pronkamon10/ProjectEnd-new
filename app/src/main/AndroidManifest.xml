@@ -17,22 +17,57 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <!-- Setting -->
+        <activity
+            android:name=".Setting"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!-- contact -->
+        <activity
+            android:name=".contact"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!-- Example-->
+        <activity
+            android:name=".DisableSwipeIntro2"
+            android:screenOrientation="landscape"></activity>
+
+        <!-- map-->
+        <activity
+            android:name=".map"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
+
+        <!-- map1 -->
+        <activity
+            android:name=".map1"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
 
         <!-- page1_1 -->
         <activity
             android:name=".page1_1"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
 
         <!-- scene1_1 -->
         <activity
             android:name=".scene1_1"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
 
         <!-- page1_2 -->
         <activity
@@ -44,7 +79,9 @@
         <activity
             android:name=".scene1_2"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
 
         <!-- page1_3 -->
         <activity
@@ -62,43 +99,29 @@
         <activity
             android:name=".scene1_3"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
 
         <!-- page1_4 -->
         <activity
             android:name=".page1_4"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
 
         <!-- scene1_4 -->
         <activity
             android:name=".scene1_4"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
 
-        <!-- map1 -->
-        <activity
-            android:name=".map1"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-        <!-- contact -->
-        <activity
-            android:name=".contact"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!-- MiniGame1 -->
         <activity
             android:name=".minigame1"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".DisableSwipeIntro2"
-            android:screenOrientation="landscape"></activity>
-        <activity android:name=".Setting">
-
-        </activity>
     </application>
 
 </manifest>

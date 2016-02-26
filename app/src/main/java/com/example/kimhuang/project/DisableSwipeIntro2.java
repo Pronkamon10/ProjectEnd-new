@@ -60,7 +60,7 @@ public class DisableSwipeIntro2 extends AppCompatActivity {
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(btnDone.getContext(), map1.class));
+                startActivity(new Intent(btnDone.getContext(), map.class));
             }
         });
     }

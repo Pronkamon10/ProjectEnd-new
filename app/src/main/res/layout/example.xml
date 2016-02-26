@@ -33,12 +33,12 @@
                 android:layout_height="0dp"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_horizontal|right"
-                android:layout_weight="1.4">
+                android:layout_weight="1.35">
 
                 <ImageView
                     android:id="@+id/janta1"
-                    android:layout_width="90dp"
-                    android:layout_height="200dp"
+                    android:layout_width="100dp"
+                    android:layout_height="250dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/animate_janta1_1" />
@@ -49,7 +49,8 @@
                     android:layout_height="50dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
-                    android:src="@drawable/figer_noemal" />
+                    android:layout_alignBottom="@+id/janta1"
+                    android:background="@drawable/animate_figer" />
 
             </RelativeLayout>
         </LinearLayout>

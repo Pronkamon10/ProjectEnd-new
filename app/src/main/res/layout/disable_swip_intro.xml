@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="Done"
+        android:text="ต่อไป"
         android:visibility="gone" />
 
 </RelativeLayout>

@@ -36,8 +36,8 @@ public class map1 extends AppCompatActivity {
                 startActivity(c);
             }
         });
-//
-//        //trees
+
+       //trees
         shellsung = (ImageView)findViewById(R.id.shellsung);
         final Intent a = new Intent(this,page1_3.class);
         shellsung.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +47,7 @@ public class map1 extends AppCompatActivity {
             }
         });
 
-//        //alga
+       //alga
         alga1 = (ImageView)findViewById(R.id.alga1);
         final Intent e = new Intent(this,page1_4.class);
         alga1.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class map1 extends AppCompatActivity {
         });
 
         btn_back = (Button)findViewById(R.id.btn_back);
-        final Intent n = new Intent(this, home.class);
+        final Intent n = new Intent(this, map.class);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

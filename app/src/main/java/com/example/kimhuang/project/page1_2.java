@@ -18,11 +18,12 @@ public class page1_2 extends AppCompatActivity {
     Button btn_back, btn_next,btn_pause;
     ToggleButton btn_music;
     MediaPlayer mediaPlayer;
+    //boolean
+    boolean isOpen = false;
     //Dialog
     AlertDialog.Builder builder;
     Dialog dialog;
     Button dialogset, dialogexit, dialoghome, dialogclose;
-    boolean isOpen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class page1_2 extends AppCompatActivity {
                     isOpen = true;
                 }
             }
+
         });
 
         //button_pause

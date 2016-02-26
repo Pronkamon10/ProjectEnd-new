@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/bg" />
+        android:src="@drawable/background" />
 
     <Button
         android:id="@+id/btn_pause"
@@ -43,8 +43,8 @@
 
         <ImageView
             android:id="@+id/firsh1"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
             android:layout_alignLeft="@+id/sungthong4"
             android:background="@drawable/animate_firsh" />
 
@@ -57,7 +57,7 @@
 
         <ImageView
             android:id="@+id/firsh2"
-            android:layout_width="100dp"
+            android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_toRightOf="@+id/alga1"
             android:background="@drawable/animate_firsh1" />

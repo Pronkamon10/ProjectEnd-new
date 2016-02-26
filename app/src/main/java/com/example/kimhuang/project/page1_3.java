@@ -18,6 +18,8 @@ public class page1_3 extends AppCompatActivity {
     Button btn_back, btn_next ,btn_pause;
     ToggleButton btn_music;
     MediaPlayer mediaPlayer;
+    //boolean
+    boolean isOpen = false;
     //Dialog
     AlertDialog.Builder builder;
     Dialog dialog;
@@ -37,11 +39,17 @@ public class page1_3 extends AppCompatActivity {
         btn_music = (ToggleButton) findViewById(R.id.btn_music);
         btn_music.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
-                if (arg1) {
+                if (isOpen == true) {
                     mediaPlayer.start();
-                } else
+                    btn_music.setBackgroundResource(R.drawable.btn_music);
+                    isOpen = false;
+                } else {
                     mediaPlayer.pause();
+                    btn_music.setBackgroundResource(R.drawable.btn_music_act);
+                    isOpen = true;
+                }
             }
+
         });
 
         //button_pause
