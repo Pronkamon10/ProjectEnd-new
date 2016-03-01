@@ -179,7 +179,8 @@ public class scene1_1 extends AppCompatActivity {
                 dialogset.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.dismiss();
+                        if (dialog != null)
+                            dialog.dismiss();
                     }
                 });
 
@@ -187,7 +188,8 @@ public class scene1_1 extends AppCompatActivity {
                 dialogclose.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.cancel();
+                        if (dialog != null)
+                            dialog.cancel();
                     }
                 });
                 dialog.show();

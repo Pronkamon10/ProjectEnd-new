@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class scene1_4 extends AppCompatActivity {
-    ImageView sungthong4, firsh1,firsh2,firsh3,box1_4,alga1,alga2;
+    ImageView sungthong4, firsh1, firsh2, firsh3, box1_4, alga1, alga2;
     ImageView word6, word7;
     Button btn_back, btn_next, btn_pause;
     //boolean
@@ -39,7 +39,7 @@ public class scene1_4 extends AppCompatActivity {
         animPopUp = new AnimPopUp();
 
         //box1_4
-        box1_4 = (ImageView)findViewById(R.id.box1_4);
+        box1_4 = (ImageView) findViewById(R.id.box1_4);
         animPopUp.PlayAnimation(box1_4);
 
         //frish1
@@ -47,15 +47,15 @@ public class scene1_4 extends AppCompatActivity {
         animPopUp.PlayAnimation(firsh1);
 
         //alga1
-        alga1 = (ImageView)findViewById(R.id.alga1);
+        alga1 = (ImageView) findViewById(R.id.alga1);
         animPopUp.PlayAnimation(alga1);
 
         //firsh3
-        firsh3 = (ImageView)findViewById(R.id.firsh3);
+        firsh3 = (ImageView) findViewById(R.id.firsh3);
         animPopUp.PlayAnimation(firsh3);
 
         //firsh3
-        alga2 = (ImageView)findViewById(R.id.alga2);
+        alga2 = (ImageView) findViewById(R.id.alga2);
         animPopUp.PlayAnimation(alga2);
 
         //word6
@@ -158,7 +158,8 @@ public class scene1_4 extends AppCompatActivity {
                 dialogset.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.dismiss();
+                        if (dialog != null)
+                            dialog.dismiss();
                     }
                 });
 
@@ -166,7 +167,8 @@ public class scene1_4 extends AppCompatActivity {
                 dialogclose.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.cancel();
+                        if (dialog != null)
+                            dialog.cancel();
                     }
                 });
                 dialog.show();
@@ -192,12 +194,14 @@ public class scene1_4 extends AppCompatActivity {
             }
         });
     }
+
     public void checkDown() {
-        if (flagsungthong == true && flagfirsh == true ) {
+        if (flagsungthong == true && flagfirsh == true) {
             btn_next.setVisibility(View.VISIBLE);
             btn_back.setVisibility(View.VISIBLE);
         }
     }
+
     //ให้อนิเมชันเริ่มหลังจากที่ popup ขึ้นมาแล้ว
     @Override
     protected void onResume() {

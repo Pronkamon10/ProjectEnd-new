@@ -15,7 +15,7 @@ import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
 public class page1_2 extends AppCompatActivity {
-    Button btn_back, btn_next,btn_pause;
+    Button btn_back, btn_next, btn_pause;
     ToggleButton btn_music;
     MediaPlayer mediaPlayer;
     //boolean
@@ -122,20 +122,25 @@ public class page1_2 extends AppCompatActivity {
             }
         });
     }
+
     public void onResume() {
         super.onResume();
-        if(btn_music.isChecked())
+        if (btn_music.isChecked())
             mediaPlayer.start();
     }
+
     public void onPause() {
         super.onPause();
-        mediaPlayer.pause();
+        if (mediaPlayer != null)
+            mediaPlayer.pause();
     }
 
     public void onDestroy() {
         super.onDestroy();
-        mediaPlayer.stop();
-        mediaPlayer.release();
-        mediaPlayer = null;
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }

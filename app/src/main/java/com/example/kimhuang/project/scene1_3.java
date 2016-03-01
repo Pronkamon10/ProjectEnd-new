@@ -17,8 +17,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class scene1_3 extends AppCompatActivity {
-    ImageView house1, sungthong3, chicken1, grass1,grass2,trees1,box1_3;
-    Button btn_back, btn_next, btn_close,btn_pause;
+    ImageView house1, sungthong3, chicken1, grass1, grass2, trees1, box1_3;
+    Button btn_back, btn_next, btn_close, btn_pause;
     MediaPlayer mediaPlayer;
     //boolean
     boolean chicken = false;
@@ -44,19 +44,19 @@ public class scene1_3 extends AppCompatActivity {
         animPopUp = new AnimPopUp();
 
         //grass1
-        grass1 = (ImageView)findViewById(R.id.grass1);
+        grass1 = (ImageView) findViewById(R.id.grass1);
         animPopUp.PlayAnimation(grass1);
 
         //grass2
-        grass2 = (ImageView)findViewById(R.id.grass2);
+        grass2 = (ImageView) findViewById(R.id.grass2);
         animPopUp.PlayAnimation(grass2);
 
         //trees1
-        trees1 = (ImageView)findViewById(R.id.trees1);
+        trees1 = (ImageView) findViewById(R.id.trees1);
         animPopUp.PlayAnimation(trees1);
 
         //box1_3
-        box1_3 = (ImageView)findViewById(R.id.box1_3);
+        box1_3 = (ImageView) findViewById(R.id.box1_3);
         animPopUp.PlayAnimation(box1_3);
 
         //house
@@ -71,11 +71,11 @@ public class scene1_3 extends AppCompatActivity {
 
                     if (house == false) {
                         ((AnimationDrawable) house1.getBackground()).stop();
-                        house  = true;
+                        house = true;
                         //change image view
                         house1.setBackgroundResource(R.drawable.house3);
                     } else {
-                        house  = false;
+                        house = false;
                         house1.setBackgroundResource(R.drawable.animate_house);
                         ((AnimationDrawable) house1.getBackground()).start();
                     }
@@ -98,7 +98,7 @@ public class scene1_3 extends AppCompatActivity {
             public void onClick(View v) {
                 flagchicken = true;
                 checkDown();
-                mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.rooster);
+                mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.rooster);
                 mediaPlayer.start();
                 try {
                     if (chicken = false) {
@@ -202,7 +202,8 @@ public class scene1_3 extends AppCompatActivity {
                 dialogset.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.dismiss();
+                        if (dialog != null)
+                            dialog.dismiss();
                     }
                 });
 
@@ -210,7 +211,8 @@ public class scene1_3 extends AppCompatActivity {
                 dialogclose.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.cancel();
+                        if (dialog != null)
+                            dialog.cancel();
                     }
                 });
                 dialog.show();
@@ -236,6 +238,7 @@ public class scene1_3 extends AppCompatActivity {
             }
         });
     }
+
     //checkDown ว่ากดปุ่มครบหมดไหมถึงสามารถไปหน้าอื่นได้
     public void checkDown() {
         if (flaghouse == true && flagchicken == true) {
@@ -243,6 +246,7 @@ public class scene1_3 extends AppCompatActivity {
             btn_back.setVisibility(View.VISIBLE);
         }
     }
+
     //ให้อนิเมชันเริ่มหลังจากที่ popup ขึ้นมาแล้ว
     @Override
     protected void onResume() {
@@ -257,7 +261,7 @@ public class scene1_3 extends AppCompatActivity {
             public void onFinish() {
                 ((AnimationDrawable) sungthong3.getBackground()).start();
                 ((AnimationDrawable) chicken1.getBackground()).start();
-                ((AnimationDrawable)house1.getBackground()).start();
+                ((AnimationDrawable) house1.getBackground()).start();
             }
         }.start();
     }

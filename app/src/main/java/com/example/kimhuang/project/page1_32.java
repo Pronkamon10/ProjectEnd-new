@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.ToggleButton;
 
 public class page1_32 extends AppCompatActivity {
-    Button btn_back, btn_next,btn_pause;
+    Button btn_back, btn_next, btn_pause;
     ImageView house1;
     ToggleButton btn_music;
     MediaPlayer mediaPlayer;
@@ -27,6 +27,7 @@ public class page1_32 extends AppCompatActivity {
     AlertDialog.Builder builder;
     Dialog dialog;
     Button dialogset, dialogexit, dialoghome, dialogclose;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,8 @@ public class page1_32 extends AppCompatActivity {
         setContentView(R.layout.page1_32);
 
         //house
-        house1 = (ImageView)findViewById(R.id.house1);
-        ((AnimationDrawable)house1.getBackground()).start();
+        house1 = (ImageView) findViewById(R.id.house1);
+        ((AnimationDrawable) house1.getBackground()).start();
 
         mediaPlayer = MediaPlayer.create(this, R.raw.scene3_2);
         mediaPlayer.setLooping(true);
@@ -130,20 +131,25 @@ public class page1_32 extends AppCompatActivity {
             }
         });
     }
+
     public void onResume() {
         super.onResume();
-        if(btn_music.isChecked())
+        if (btn_music.isChecked())
             mediaPlayer.start();
     }
+
     public void onPause() {
         super.onPause();
-        mediaPlayer.pause();
+        if (mediaPlayer != null)
+            mediaPlayer.pause();
     }
 
     public void onDestroy() {
         super.onDestroy();
-        mediaPlayer.stop();
-        mediaPlayer.release();
-        mediaPlayer = null;
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }

@@ -16,7 +16,7 @@ import android.widget.ImageView;
 
 public class scene1_2 extends AppCompatActivity {
     //ImageView
-    ImageView oldmen1, oldwomen1,jantawee2,box1_2,trees1,trees2;
+    ImageView oldmen1, oldwomen1, jantawee2, box1_2, trees1, trees2;
     ImageView word4, word5;
     //Button
     Button btn_back, btn_next, btn_pause;
@@ -41,15 +41,15 @@ public class scene1_2 extends AppCompatActivity {
         animPopUp = new AnimPopUp();
 
         //box1_2
-        box1_2 = (ImageView)findViewById(R.id.box1_2);
+        box1_2 = (ImageView) findViewById(R.id.box1_2);
         animPopUp.PlayAnimation(box1_2);
 
         //trees1
-        trees1 = (ImageView)findViewById(R.id.trees1);
+        trees1 = (ImageView) findViewById(R.id.trees1);
         animPopUp.PlayAnimation(trees1);
 
         //trees2
-        trees2 = (ImageView)findViewById(R.id.trees2);
+        trees2 = (ImageView) findViewById(R.id.trees2);
         animPopUp.PlayAnimation(trees2);
 
         //word4
@@ -152,7 +152,8 @@ public class scene1_2 extends AppCompatActivity {
                 dialogset.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.dismiss();
+                        if(dialog != null)
+                            dialog.dismiss();
                     }
                 });
 
@@ -160,7 +161,8 @@ public class scene1_2 extends AppCompatActivity {
                 dialogclose.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.cancel();
+                        if(dialog != null)
+                            dialog.cancel();
                     }
                 });
                 dialog.show();
@@ -187,13 +189,15 @@ public class scene1_2 extends AppCompatActivity {
         });
 
     }
+
     //checkDown ว่ากดปุ่มครบหมดไหมถึงสามารถไปหน้าอื่นได้
     public void checkDown() {
-        if (flagoldwomen== true && flagjantawee == true) {
+        if (flagoldwomen == true && flagjantawee == true) {
             btn_next.setVisibility(View.VISIBLE);
             btn_back.setVisibility(View.VISIBLE);
         }
     }
+
     //ให้อนิเมชันเริ่มหลังจากที่ popup ขึ้นมาแล้ว
     @Override
     protected void onResume() {
