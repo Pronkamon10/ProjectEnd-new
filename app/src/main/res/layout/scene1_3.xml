@@ -20,10 +20,12 @@
 
 
     <ImageView
+        android:id="@+id/box1_3"
         android:layout_width="500dp"
         android:layout_height="250dp"
         android:src="@drawable/box1_3"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:rotationX="90"/>
 
     <ImageView
         android:id="@+id/book3"
@@ -44,21 +46,25 @@
             android:layout_width="230dp"
             android:layout_height="300dp"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/trees" />
+            android:src="@drawable/trees"
+            android:rotationX="90"/>
 
         <ImageView
-            android:id="@+id/grass"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:src="@drawable/grass"
-            android:layout_alignParentBottom="true" />
-
-        <ImageView
+            android:id="@+id/grass1"
             android:layout_width="100dp"
             android:layout_height="150dp"
             android:src="@drawable/grass"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/grass"/>
+            android:rotationX="90"/>
+
+        <ImageView
+            android:id="@+id/grass2"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@drawable/grass"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/grass1"
+            android:rotationX="90"/>
 
 
         <ImageView
@@ -66,7 +72,8 @@
             android:layout_width="250dp"
             android:layout_height="300dp"
             android:layout_alignParentRight="true"
-            android:background="@drawable/animate_house"/>
+            android:background="@drawable/animate_house"
+            android:rotationX="90"/>
 
     </RelativeLayout>
 
@@ -81,14 +88,16 @@
             android:layout_width="400dp"
             android:layout_height="230dp"
             android:background="@drawable/animate_sungthong1_3"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:rotationX="90"/>
 
         <ImageView
             android:id="@+id/chicken1"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_centerVertical="true"
-            android:background="@drawable/animate_chicken"/>
+            android:background="@drawable/animate_chicken"
+            android:rotationX="90"/>
 
     </RelativeLayout>
 
@@ -100,7 +109,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
-        android:background="@drawable/button_back" />
+        android:background="@drawable/button_back"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/btn_next"
@@ -110,6 +120,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/button_next" />
+        android:background="@drawable/button_next"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

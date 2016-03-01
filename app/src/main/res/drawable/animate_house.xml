@@ -3,10 +3,10 @@
     android:oneshot="false">
 
     <item
+        android:drawable="@drawable/house2"
+        android:duration="800" />
+    <item
         android:drawable="@drawable/house1"
         android:duration="800" />
 
-    <item
-        android:drawable="@drawable/house2"
-        android:duration="800" />
 </animation-list>

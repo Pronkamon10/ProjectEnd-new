@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,21 +15,42 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class scene1_2 extends AppCompatActivity {
-    ImageView oldmen1, oldwomen1,jantawee2;
+    //ImageView
+    ImageView oldmen1, oldwomen1,jantawee2,box1_2,trees1,trees2;
     ImageView word4, word5;
+    //Button
     Button btn_back, btn_next, btn_pause;
     //boolean
     boolean oldwomen = false;
     boolean jantawee = false;
+    boolean flagoldwomen, flagjantawee;
     //Dialog
     AlertDialog.Builder builder;
     Dialog dialog;
     Button dialogset, dialogexit, dialoghome, dialogclose;
+    //etc
+    AnimPopUp animPopUp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scene1_2);
+
+        //animPopUp
+        animPopUp = new AnimPopUp();
+
+        //box1_2
+        box1_2 = (ImageView)findViewById(R.id.box1_2);
+        animPopUp.PlayAnimation(box1_2);
+
+        //trees1
+        trees1 = (ImageView)findViewById(R.id.trees1);
+        animPopUp.PlayAnimation(trees1);
+
+        //trees2
+        trees2 = (ImageView)findViewById(R.id.trees2);
+        animPopUp.PlayAnimation(trees2);
 
         //word4
         word4 = (ImageView) findViewById(R.id.word4);
@@ -38,14 +60,16 @@ public class scene1_2 extends AppCompatActivity {
 
         //oldmen
         oldmen1 = (ImageView) findViewById(R.id.oldmen1);
-        ((AnimationDrawable) oldmen1.getBackground()).start();
+        animPopUp.PlayAnimation(oldmen1);
 
         //oldwomen
         oldwomen1 = (ImageView) findViewById(R.id.oldwomen1);
-        ((AnimationDrawable) oldwomen1.getBackground()).start();
+        animPopUp.PlayAnimation(oldwomen1);
         oldwomen1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flagoldwomen = true;
+                checkDown();
                 try {
 
                     if (oldwomen == false) {
@@ -68,10 +92,12 @@ public class scene1_2 extends AppCompatActivity {
 
         //jantawee
         jantawee2 = (ImageView) findViewById(R.id.jantawee2);
-        ((AnimationDrawable) jantawee2.getBackground()).start();
+        animPopUp.PlayAnimation(jantawee2);
         jantawee2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flagjantawee = true;
+                checkDown();
                 try {
 
                     if (jantawee == false) {
@@ -161,4 +187,30 @@ public class scene1_2 extends AppCompatActivity {
         });
 
     }
+    //checkDown ว่ากดปุ่มครบหมดไหมถึงสามารถไปหน้าอื่นได้
+    public void checkDown() {
+        if (flagoldwomen== true && flagjantawee == true) {
+            btn_next.setVisibility(View.VISIBLE);
+            btn_back.setVisibility(View.VISIBLE);
+        }
+    }
+    //ให้อนิเมชันเริ่มหลังจากที่ popup ขึ้นมาแล้ว
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new CountDownTimer(1500, 50) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                ((AnimationDrawable) oldmen1.getBackground()).start();
+                ((AnimationDrawable) oldwomen1.getBackground()).start();
+                ((AnimationDrawable) jantawee2.getBackground()).start();
+            }
+        }.start();
+    }
 }
+

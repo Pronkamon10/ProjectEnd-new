@@ -23,7 +23,8 @@
         android:layout_width="500dp"
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/box1_1" />
+        android:src="@drawable/box1_1"
+        android:rotationX="90"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -40,7 +41,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
-        android:src="@drawable/chair" />
+        android:src="@drawable/chair"
+        android:rotationX="90"/>
 
     <ImageView
         android:id="@+id/yotsawimon1"
@@ -48,7 +50,8 @@
         android:layout_height="350dp"
         android:layout_alignTop="@+id/chair"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/animate_yotsawimon1_1" />
+        android:background="@drawable/animate_yotsawimon1_1"
+        android:rotationX="90"/>
 
     <ImageView
         android:id="@+id/jantawee1"
@@ -57,7 +60,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
         android:layout_toLeftOf="@+id/chair"
-        android:background="@drawable/animate_jantawee1_1" />
+        android:background="@drawable/animate_jantawee1_1"
+        android:rotationX="90"/>
 
     <ImageView
         android:id="@+id/word2"
@@ -66,17 +70,16 @@
         android:src="@drawable/word2"
         android:layout_toLeftOf="@+id/yotsawimon1"
         android:layout_centerVertical="true"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/word1"
-        android:layout_width="250dp"
+        android:layout_width="200dp"
         android:layout_height="100dp"
         android:src="@drawable/word1"
-        android:layout_marginLeft="30dp"
+        android:layout_toLeftOf="@+id/jantawee1"
         android:layout_marginTop="5dp"
-        android:visibility="gone" />
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/janta1"
@@ -85,10 +88,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="30dp"
         android:layout_toRightOf="@+id/chair"
-        android:background="@drawable/animate_janta1_1" />
+        android:background="@drawable/animate_janta1_1"
+        android:rotationX="90"/>
 
     <RelativeLayout
-        android:layout_width="220dp"
+        android:layout_width="250dp"
         android:layout_height="200dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="50dp"
@@ -97,11 +101,11 @@
 
         <ImageView
             android:id="@+id/word3"
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="100dp"
             android:src="@drawable/word3"
             android:layout_centerVertical="true"
-            android:visibility="gone"/>
+            android:visibility="gone" />
     </RelativeLayout>
 
     <Button
@@ -111,7 +115,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
-        android:background="@drawable/button_back" />
+        android:background="@drawable/button_back"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/btn_next"
@@ -121,7 +126,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/button_next" />
-
+        android:background="@drawable/button_next"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

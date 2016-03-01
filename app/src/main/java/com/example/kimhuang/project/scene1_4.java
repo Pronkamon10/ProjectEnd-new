@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,25 +16,47 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class scene1_4 extends AppCompatActivity {
-    ImageView sungthong4, firsh1, firsh2;
+    ImageView sungthong4, firsh1,firsh2,firsh3,box1_4,alga1,alga2;
     ImageView word6, word7;
     Button btn_back, btn_next, btn_pause;
     //boolean
     boolean firsh = false;
     boolean sungthong = false;
+    boolean flagfirsh, flagsungthong;
     //Dialog
     AlertDialog.Builder builder;
     Dialog dialog;
     Button dialogset, dialogexit, dialoghome, dialogclose;
+    //etc
+    AnimPopUp animPopUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scene1_4);
 
-        //frish
+        //animPopUp
+        animPopUp = new AnimPopUp();
+
+        //box1_4
+        box1_4 = (ImageView)findViewById(R.id.box1_4);
+        animPopUp.PlayAnimation(box1_4);
+
+        //frish1
         firsh1 = (ImageView) findViewById(R.id.firsh1);
-        ((AnimationDrawable) firsh1.getBackground()).start();
+        animPopUp.PlayAnimation(firsh1);
+
+        //alga1
+        alga1 = (ImageView)findViewById(R.id.alga1);
+        animPopUp.PlayAnimation(alga1);
+
+        //firsh3
+        firsh3 = (ImageView)findViewById(R.id.firsh3);
+        animPopUp.PlayAnimation(firsh3);
+
+        //firsh3
+        alga2 = (ImageView)findViewById(R.id.alga2);
+        animPopUp.PlayAnimation(alga2);
 
         //word6
         word6 = (ImageView) findViewById(R.id.word6);
@@ -43,10 +66,12 @@ public class scene1_4 extends AppCompatActivity {
 
         //firsh
         firsh2 = (ImageView) findViewById(R.id.firsh2);
-        ((AnimationDrawable) firsh2.getBackground()).start();
+        animPopUp.PlayAnimation(firsh2);
         firsh2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flagfirsh = true;
+                checkDown();
                 try {
 
                     if (firsh == false) {
@@ -69,10 +94,12 @@ public class scene1_4 extends AppCompatActivity {
 
         // sungthong
         sungthong4 = (ImageView) findViewById(R.id.sungthong4);
-        ((AnimationDrawable) sungthong4.getBackground()).start();
+        animPopUp.PlayAnimation(sungthong4);
         sungthong4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flagsungthong = true;
+                checkDown();
                 try {
 
                     if (sungthong == false) {
@@ -164,5 +191,29 @@ public class scene1_4 extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    public void checkDown() {
+        if (flagsungthong == true && flagfirsh == true ) {
+            btn_next.setVisibility(View.VISIBLE);
+            btn_back.setVisibility(View.VISIBLE);
+        }
+    }
+    //ให้อนิเมชันเริ่มหลังจากที่ popup ขึ้นมาแล้ว
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new CountDownTimer(1500, 50) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                ((AnimationDrawable) firsh1.getBackground()).start();
+                ((AnimationDrawable) firsh2.getBackground()).start();
+                ((AnimationDrawable) sungthong4.getBackground()).start();
+            }
+        }.start();
     }
 }

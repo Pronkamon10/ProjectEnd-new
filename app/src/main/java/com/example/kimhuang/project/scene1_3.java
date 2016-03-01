@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,12 +17,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class scene1_3 extends AppCompatActivity {
-    ImageView house1, sungthong3, chicken1;
+    ImageView house1, sungthong3, chicken1, grass1,grass2,trees1,box1_3;
     Button btn_back, btn_next, btn_close,btn_pause;
     MediaPlayer mediaPlayer;
     //boolean
     boolean chicken = false;
     boolean house = false;
+    boolean flagchicken, flaghouse;
     //Dialog
     AlertDialog.Builder builder;
     Dialog dialog;
@@ -29,6 +31,8 @@ public class scene1_3 extends AppCompatActivity {
     Dialog knowlesst;
     int pindex = 0;
     int[] resChiken = {R.drawable.knowless_ck1, R.drawable.knowless_ck2, R.drawable.knowless_ck3};
+    //etc
+    AnimPopUp animPopUp;
 
 
     @Override
@@ -36,13 +40,33 @@ public class scene1_3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scene1_3);
 
+        //animPopUp
+        animPopUp = new AnimPopUp();
+
+        //grass1
+        grass1 = (ImageView)findViewById(R.id.grass1);
+        animPopUp.PlayAnimation(grass1);
+
+        //grass2
+        grass2 = (ImageView)findViewById(R.id.grass2);
+        animPopUp.PlayAnimation(grass2);
+
+        //trees1
+        trees1 = (ImageView)findViewById(R.id.trees1);
+        animPopUp.PlayAnimation(trees1);
+
+        //box1_3
+        box1_3 = (ImageView)findViewById(R.id.box1_3);
+        animPopUp.PlayAnimation(box1_3);
+
         //house
-        //jantawee
         house1 = (ImageView) findViewById(R.id.house1);
-        ((AnimationDrawable)house1.getBackground()).start();
+        animPopUp.PlayAnimation(house1);
         house1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flaghouse = true;
+                checkDown();
                 try {
 
                     if (house == false) {
@@ -64,14 +88,16 @@ public class scene1_3 extends AppCompatActivity {
 
         // sungthong
         sungthong3 = (ImageView) findViewById(R.id.sungthong3);
-        ((AnimationDrawable) sungthong3.getBackground()).start();
+        animPopUp.PlayAnimation(sungthong3);
 
         //chicken
         chicken1 = (ImageView) findViewById(R.id.chicken1);
-        ((AnimationDrawable) chicken1.getBackground()).start();
+        animPopUp.PlayAnimation(chicken1);
         chicken1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flagchicken = true;
+                checkDown();
                 mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.rooster);
                 mediaPlayer.start();
                 try {
@@ -209,7 +235,31 @@ public class scene1_3 extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    //checkDown ว่ากดปุ่มครบหมดไหมถึงสามารถไปหน้าอื่นได้
+    public void checkDown() {
+        if (flaghouse == true && flagchicken == true) {
+            btn_next.setVisibility(View.VISIBLE);
+            btn_back.setVisibility(View.VISIBLE);
+        }
+    }
+    //ให้อนิเมชันเริ่มหลังจากที่ popup ขึ้นมาแล้ว
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new CountDownTimer(1500, 50) {
+            @Override
+            public void onTick(long millisUntilFinished) {
 
+            }
+
+            @Override
+            public void onFinish() {
+                ((AnimationDrawable) sungthong3.getBackground()).start();
+                ((AnimationDrawable) chicken1.getBackground()).start();
+                ((AnimationDrawable)house1.getBackground()).start();
+            }
+        }.start();
     }
 }
 

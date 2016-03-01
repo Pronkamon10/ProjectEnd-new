@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,36 +16,53 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class scene1_1 extends AppCompatActivity {
-    ImageView jantawee1, janta1, yotsawimon1;
+    //ImageView
+    ImageView jantawee1, janta1, yotsawimon1, chair, box1_1;
     ImageView word1, word2, word3;
-    Button btn_back, btn_next,btn_pause;
-    MediaPlayer mediaPlayer;
+    //Button
+    Button btn_back, btn_next, btn_pause;
     //boolean
     boolean jantawee = false;
     boolean yotsawimon = false;
     boolean janta = false;
+    boolean flagjantawee, flagjanta, flagyotsawimon;
     //Dialog
     AlertDialog.Builder builder;
     Dialog dialog;
     Button dialogset, dialogexit, dialoghome, dialogclose;
+    //etc
+    MediaPlayer mediaPlayer;
+    AnimPopUp animPopUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scenc1_1);
 
+        //animpopup
+        animPopUp = new AnimPopUp();
+
+        //chair
+        chair = (ImageView) findViewById(R.id.chair);
+        animPopUp.PlayAnimation(chair);
+
+        //box
+        box1_1 = (ImageView) findViewById(R.id.box1_1);
+        animPopUp.PlayAnimation(box1_1);
+
         //Word
         word1 = (ImageView) findViewById(R.id.word1);
         word2 = (ImageView) findViewById(R.id.word2);
         word3 = (ImageView) findViewById(R.id.word3);
 
-
         //jantawee
         jantawee1 = (ImageView) findViewById(R.id.jantawee1);
-        ((AnimationDrawable) jantawee1.getBackground()).start();
+        animPopUp.PlayAnimation(jantawee1);
         jantawee1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flagjantawee = true;
+                checkDown();
                 try {
 
                     if (jantawee == false) {
@@ -67,10 +85,12 @@ public class scene1_1 extends AppCompatActivity {
 
         //yotsawimon
         yotsawimon1 = (ImageView) findViewById(R.id.yotsawimon1);
-        ((AnimationDrawable) yotsawimon1.getBackground()).start();
+        animPopUp.PlayAnimation(yotsawimon1);
         yotsawimon1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flagyotsawimon = true;
+                checkDown();
                 try {
                     if (yotsawimon == false) {
                         ((AnimationDrawable) yotsawimon1.getBackground()).stop();
@@ -91,10 +111,12 @@ public class scene1_1 extends AppCompatActivity {
 
         //janta
         janta1 = (ImageView) findViewById(R.id.janta1);
-        ((AnimationDrawable) janta1.getBackground()).start();
+        animPopUp.PlayAnimation(janta1);
         janta1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                flagjanta = true;
+                checkDown();
                 try {
 
                     if (janta == false) {
@@ -132,7 +154,7 @@ public class scene1_1 extends AppCompatActivity {
                 dialogexit = (Button) dialog.findViewById(R.id.btn_exit);
                 dialoghome = (Button) dialog.findViewById(R.id.btn_home);
                 dialogset = (Button) dialog.findViewById(R.id.btn_setting);
-                dialogclose = (Button)dialog.findViewById(R.id.btn_close);
+                dialogclose = (Button) dialog.findViewById(R.id.btn_close);
 
                 //button_exit
                 dialogexit.setOnClickListener(new View.OnClickListener() {
@@ -194,7 +216,31 @@ public class scene1_1 extends AppCompatActivity {
 
     }
 
+    //checkDown ว่ากดปุ่มครบหมดไหมถึงสามารถไปหน้าอื่นได้
+    public void checkDown() {
+        if (flagjantawee == true && flagjanta == true && flagyotsawimon == true) {
+            btn_next.setVisibility(View.VISIBLE);
+            btn_back.setVisibility(View.VISIBLE);
+        }
+    }
 
+    //ให้อนิเมชันเริ่มหลังจากที่ popup ขึ้นมาแล้ว
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new CountDownTimer(1500, 50) {
+            @Override
+            public void onTick(long millisUntilFinished) {
 
+            }
+
+            @Override
+            public void onFinish() {
+                ((AnimationDrawable) jantawee1.getBackground()).start();
+                ((AnimationDrawable) janta1.getBackground()).start();
+                ((AnimationDrawable) yotsawimon1.getBackground()).start();
+            }
+        }.start();
+    }
 }
 
