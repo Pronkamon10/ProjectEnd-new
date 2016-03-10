@@ -168,7 +168,7 @@ public class scene1_3 extends AppCompatActivity {
             }
         });
 
-        //button pause
+        //button_pause
         btn_pause = (Button) findViewById(R.id.btn_pause);
         builder = new AlertDialog.Builder(this);
         dialog = new Dialog(this);
@@ -183,8 +183,11 @@ public class scene1_3 extends AppCompatActivity {
                 dialogexit = (Button) dialog.findViewById(R.id.btn_exit);
                 dialoghome = (Button) dialog.findViewById(R.id.btn_home);
                 dialogset = (Button) dialog.findViewById(R.id.btn_setting);
+                dialogclose = (Button) dialog.findViewById(R.id.btn_close);
 
+                //button_exit
                 dialogexit.setOnClickListener(new View.OnClickListener() {
+
                     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
                     @Override
                     public void onClick(View v) {
@@ -192,6 +195,7 @@ public class scene1_3 extends AppCompatActivity {
                     }
                 });
 
+                //button_home
                 dialoghome.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -199,6 +203,8 @@ public class scene1_3 extends AppCompatActivity {
                         startActivity(i);
                     }
                 });
+
+                //button_setting
                 dialogset.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -218,6 +224,7 @@ public class scene1_3 extends AppCompatActivity {
                 dialog.show();
             }
         });
+
 
         //button_back
         btn_back = (Button) findViewById(R.id.btn_back);

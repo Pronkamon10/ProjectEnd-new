@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
@@ -30,6 +31,7 @@ public class scene1_2 extends AppCompatActivity {
     Button dialogset, dialogexit, dialoghome, dialogclose;
     //etc
     AnimPopUp animPopUp;
+    MediaPlayer mediaPlayer;
 
 
     @Override
@@ -78,6 +80,9 @@ public class scene1_2 extends AppCompatActivity {
                         //change image view
                         oldwomen1.setBackgroundResource(R.drawable.oldwomen1);
                         word4.setVisibility(View.VISIBLE);
+                        //mediaplayer
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.oldwomen);
+                        mediaPlayer.start();
                     } else {
                         oldwomen = false;
                         oldwomen1.setBackgroundResource(R.drawable.animate_oldwomen);
@@ -106,6 +111,9 @@ public class scene1_2 extends AppCompatActivity {
                         //change image view
                         jantawee2.setBackgroundResource(R.drawable.jantawee3);
                         word5.setVisibility(View.VISIBLE);
+                        //mediaplayer
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.jantawee2);
+                        mediaPlayer.start();
                     } else {
                         jantawee = false;
                         jantawee2.setBackgroundResource(R.drawable.animate_jantawee1_2);
@@ -118,7 +126,7 @@ public class scene1_2 extends AppCompatActivity {
             }
         });
 
-        //Button
+        //button_pause
         btn_pause = (Button) findViewById(R.id.btn_pause);
         builder = new AlertDialog.Builder(this);
         dialog = new Dialog(this);
@@ -133,8 +141,11 @@ public class scene1_2 extends AppCompatActivity {
                 dialogexit = (Button) dialog.findViewById(R.id.btn_exit);
                 dialoghome = (Button) dialog.findViewById(R.id.btn_home);
                 dialogset = (Button) dialog.findViewById(R.id.btn_setting);
+                dialogclose = (Button) dialog.findViewById(R.id.btn_close);
 
+                //button_exit
                 dialogexit.setOnClickListener(new View.OnClickListener() {
+
                     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
                     @Override
                     public void onClick(View v) {
@@ -142,6 +153,7 @@ public class scene1_2 extends AppCompatActivity {
                     }
                 });
 
+                //button_home
                 dialoghome.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -149,10 +161,12 @@ public class scene1_2 extends AppCompatActivity {
                         startActivity(i);
                     }
                 });
+
+                //button_setting
                 dialogset.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(dialog != null)
+                        if (dialog != null)
                             dialog.dismiss();
                     }
                 });
@@ -161,7 +175,7 @@ public class scene1_2 extends AppCompatActivity {
                 dialogclose.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(dialog != null)
+                        if (dialog != null)
                             dialog.cancel();
                     }
                 });

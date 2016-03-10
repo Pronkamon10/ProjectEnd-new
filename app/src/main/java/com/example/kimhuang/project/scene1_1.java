@@ -71,6 +71,9 @@ public class scene1_1 extends AppCompatActivity {
                         //change image view
                         jantawee1.setBackgroundResource(R.drawable.jantawee1);
                         word1.setVisibility(View.VISIBLE);
+                        //mediaplayer
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.jantawee);
+                        mediaPlayer.start();
                     } else {
                         jantawee = false;
                         jantawee1.setBackgroundResource(R.drawable.animate_jantawee1_1);
@@ -98,6 +101,9 @@ public class scene1_1 extends AppCompatActivity {
                         //change image view
                         yotsawimon1.setBackgroundResource(R.drawable.yotsawimon1);
                         word2.setVisibility(View.VISIBLE);
+                        //mediaplayer
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.yotsuwimon);
+                        mediaPlayer.start();
                     } else {
                         yotsawimon = false;
                         yotsawimon1.setBackgroundResource(R.drawable.animate_yotsawimon1_1);
@@ -125,15 +131,15 @@ public class scene1_1 extends AppCompatActivity {
                         //change image view
                         janta1.setBackgroundResource(R.drawable.janta1);
                         word3.setVisibility(View.VISIBLE);
-
+                        //mediaplayer
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.janta);
+                        mediaPlayer.start();
                     } else {
                         janta = false;
                         janta1.setBackgroundResource(R.drawable.animate_janta1_1);
                         word3.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) janta1.getBackground()).start();
                     }
-
-
                 } catch (Exception e) {
                 }
             }
@@ -184,7 +190,7 @@ public class scene1_1 extends AppCompatActivity {
                     }
                 });
 
-//                //button_close
+                //button_close
                 dialogclose.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

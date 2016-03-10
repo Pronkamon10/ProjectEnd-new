@@ -29,6 +29,7 @@ public class scene1_4 extends AppCompatActivity {
     Button dialogset, dialogexit, dialoghome, dialogclose;
     //etc
     AnimPopUp animPopUp;
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,9 @@ public class scene1_4 extends AppCompatActivity {
                         //change image view
                         firsh2.setBackgroundResource(R.drawable.firsh4);
                         word6.setVisibility(View.VISIBLE);
+                        //mediaplayer
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.firsh);
+                        mediaPlayer.start();
                     } else {
                         firsh = false;
                         firsh2.setBackgroundResource(R.drawable.animate_firsh1);
@@ -108,6 +112,9 @@ public class scene1_4 extends AppCompatActivity {
                         //change image view
                         sungthong4.setBackgroundResource(R.drawable.sungthong5);
                         word7.setVisibility(View.VISIBLE);
+                        //mediaplayer
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.prasung);
+                        mediaPlayer.start();
                     } else {
                         sungthong = false;
                         sungthong4.setBackgroundResource(R.drawable.animate_sungthong1_4);
@@ -136,6 +143,8 @@ public class scene1_4 extends AppCompatActivity {
                 dialogexit = (Button) dialog.findViewById(R.id.btn_exit);
                 dialoghome = (Button) dialog.findViewById(R.id.btn_home);
                 dialogset = (Button) dialog.findViewById(R.id.btn_setting);
+                dialogclose = (Button) dialog.findViewById(R.id.btn_close);
+
                 //button_exit
                 dialogexit.setOnClickListener(new View.OnClickListener() {
 
@@ -145,6 +154,7 @@ public class scene1_4 extends AppCompatActivity {
                         finishAffinity();
                     }
                 });
+
                 //button_home
                 dialoghome.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -174,6 +184,7 @@ public class scene1_4 extends AppCompatActivity {
                 dialog.show();
             }
         });
+
 
         //button_back
         btn_back = (Button) findViewById(R.id.btn_back);
