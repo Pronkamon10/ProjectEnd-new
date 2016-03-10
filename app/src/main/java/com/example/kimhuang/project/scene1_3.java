@@ -19,7 +19,6 @@ import android.widget.ImageView;
 public class scene1_3 extends AppCompatActivity {
     ImageView house1, sungthong3, chicken1, grass1, grass2, trees1, box1_3;
     Button btn_back, btn_next, btn_close, btn_pause;
-    MediaPlayer mediaPlayer;
     //boolean
     boolean chicken = false;
     boolean house = false;
@@ -31,9 +30,10 @@ public class scene1_3 extends AppCompatActivity {
     Dialog knowlesst;
     int pindex = 0;
     int[] resChiken = {R.drawable.knowless_ck1, R.drawable.knowless_ck2, R.drawable.knowless_ck3};
+    int[] soundChiken = {R.raw.ch1, R.raw.ch2, R.raw.ch3};
     //etc
     AnimPopUp animPopUp;
-
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +100,13 @@ public class scene1_3 extends AppCompatActivity {
                 checkDown();
                 mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.rooster);
                 mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        mediaPlayer = MediaPlayer.create(scene1_3.this, soundChiken[0]);
+                        mediaPlayer.start();
+                    }
+                });
                 try {
                     if (chicken = false) {
                         ((AnimationDrawable) chicken1.getBackground()).stop();
@@ -135,10 +142,16 @@ public class scene1_3 extends AppCompatActivity {
             public void onClick(View v) {
                 if (pindex == resChiken.length - 1) {
                     bg.setImageResource(resChiken[0]);
+                    mediaPlayer.stop();
                     pindex = 0;
+                    mediaPlayer = MediaPlayer.create(scene1_3.this, soundChiken[pindex]);
+                    mediaPlayer.start();
 
                 } else {
+                    mediaPlayer.stop();
                     bg.setImageResource(resChiken[++pindex]);
+                    mediaPlayer = MediaPlayer.create(scene1_3.this, soundChiken[pindex]);
+                    mediaPlayer.start();
                 }
             }
         });
@@ -147,10 +160,16 @@ public class scene1_3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (pindex == 0) {
+                    mediaPlayer.stop();
                     bg.setImageResource(resChiken[resChiken.length - 1]);
                     pindex = resChiken.length - 1;
+                    mediaPlayer = MediaPlayer.create(scene1_3.this, soundChiken[pindex]);
+                    mediaPlayer.start();
                 } else {
+                    mediaPlayer.stop();
                     bg.setImageResource(resChiken[--pindex]);
+                    mediaPlayer = MediaPlayer.create(scene1_3.this, soundChiken[pindex]);
+                    mediaPlayer.start();
 
                 }
             }
@@ -165,6 +184,7 @@ public class scene1_3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 knowlesst.cancel();
+                mediaPlayer.stop();
             }
         });
 

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class scene1_4 extends AppCompatActivity {
     ImageView sungthong4, firsh1, firsh2, firsh3, box1_4, alga1, alga2;
@@ -30,6 +31,7 @@ public class scene1_4 extends AppCompatActivity {
     //etc
     AnimPopUp animPopUp;
     MediaPlayer mediaPlayer;
+    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class scene1_4 extends AppCompatActivity {
         //firsh3
         firsh3 = (ImageView) findViewById(R.id.firsh3);
         animPopUp.PlayAnimation(firsh3);
+
 
         //firsh3
         alga2 = (ImageView) findViewById(R.id.alga2);
@@ -82,17 +85,19 @@ public class scene1_4 extends AppCompatActivity {
                         firsh2.setBackgroundResource(R.drawable.firsh4);
                         word6.setVisibility(View.VISIBLE);
                         //mediaplayer
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.firsh);
+                        mediaPlayer = MediaPlayer.create(scene1_4.this, R.raw.firsh);
                         mediaPlayer.start();
                     } else {
                         firsh = false;
+                        stopPlaying();
                         firsh2.setBackgroundResource(R.drawable.animate_firsh1);
                         word6.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) firsh2.getBackground()).start();
-                    }
 
+                    }
                 } catch (Exception e) {
                 }
+
             }
         });
 
@@ -112,14 +117,16 @@ public class scene1_4 extends AppCompatActivity {
                         //change image view
                         sungthong4.setBackgroundResource(R.drawable.sungthong5);
                         word7.setVisibility(View.VISIBLE);
-                        //mediaplayer
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.prasung);
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.prasung);
                         mediaPlayer.start();
+                        //mediaplayer
                     } else {
                         sungthong = false;
+                        stopPlaying();
                         sungthong4.setBackgroundResource(R.drawable.animate_sungthong1_4);
                         word7.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) sungthong4.getBackground()).start();
+
                     }
 
                 } catch (Exception e) {
@@ -179,6 +186,7 @@ public class scene1_4 extends AppCompatActivity {
                     public void onClick(View v) {
                         if (dialog != null)
                             dialog.cancel();
+
                     }
                 });
                 dialog.show();
@@ -228,7 +236,41 @@ public class scene1_4 extends AppCompatActivity {
                 ((AnimationDrawable) firsh1.getBackground()).start();
                 ((AnimationDrawable) firsh2.getBackground()).start();
                 ((AnimationDrawable) sungthong4.getBackground()).start();
+                word6.setVisibility(View.INVISIBLE);
+                word7.setVisibility(View.INVISIBLE);
+
             }
         }.start();
+    }
+
+
+    public void stopPlaying() {
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firsh2.setBackgroundResource(R.drawable.animate_firsh1);
+        sungthong4.setBackgroundResource(R.drawable.animate_sungthong1_4);
+        ((AnimationDrawable) firsh1.getBackground()).start();
+        ((AnimationDrawable) firsh2.getBackground()).start();
+        ((AnimationDrawable) sungthong4.getBackground()).start();
+        word6.setVisibility(View.INVISIBLE);
+        word7.setVisibility(View.INVISIBLE);
     }
 }

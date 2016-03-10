@@ -81,10 +81,11 @@ public class scene1_2 extends AppCompatActivity {
                         oldwomen1.setBackgroundResource(R.drawable.oldwomen1);
                         word4.setVisibility(View.VISIBLE);
                         //mediaplayer
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.oldwomen);
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.oldwomen);
                         mediaPlayer.start();
                     } else {
                         oldwomen = false;
+                        stopPlaying();
                         oldwomen1.setBackgroundResource(R.drawable.animate_oldwomen);
                         word4.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) oldwomen1.getBackground()).start();
@@ -112,10 +113,11 @@ public class scene1_2 extends AppCompatActivity {
                         jantawee2.setBackgroundResource(R.drawable.jantawee3);
                         word5.setVisibility(View.VISIBLE);
                         //mediaplayer
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.jantawee2);
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.jantawee2);
                         mediaPlayer.start();
                     } else {
                         jantawee = false;
+                        stopPlaying();
                         jantawee2.setBackgroundResource(R.drawable.animate_jantawee1_2);
                         word5.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) jantawee2.getBackground()).start();
@@ -229,6 +231,35 @@ public class scene1_2 extends AppCompatActivity {
                 ((AnimationDrawable) jantawee2.getBackground()).start();
             }
         }.start();
+    }
+
+    public void stopPlaying() {
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        oldwomen1.setBackgroundResource(R.drawable.animate_oldwomen);
+        jantawee2.setBackgroundResource(R.drawable.animate_jantawee1_2);
+        ((AnimationDrawable) oldwomen1.getBackground()).start();
+        ((AnimationDrawable) jantawee2.getBackground()).start();
+        word4.setVisibility(View.INVISIBLE);
+        word5.setVisibility(View.INVISIBLE);
     }
 }
 

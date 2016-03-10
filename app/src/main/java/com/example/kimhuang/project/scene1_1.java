@@ -76,6 +76,7 @@ public class scene1_1 extends AppCompatActivity {
                         mediaPlayer.start();
                     } else {
                         jantawee = false;
+                        stopPlaying();
                         jantawee1.setBackgroundResource(R.drawable.animate_jantawee1_1);
                         word1.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) jantawee1.getBackground()).start();
@@ -106,6 +107,7 @@ public class scene1_1 extends AppCompatActivity {
                         mediaPlayer.start();
                     } else {
                         yotsawimon = false;
+                        stopPlaying();
                         yotsawimon1.setBackgroundResource(R.drawable.animate_yotsawimon1_1);
                         word2.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) yotsawimon1.getBackground()).start();
@@ -136,6 +138,7 @@ public class scene1_1 extends AppCompatActivity {
                         mediaPlayer.start();
                     } else {
                         janta = false;
+                        stopPlaying();
                         janta1.setBackgroundResource(R.drawable.animate_janta1_1);
                         word3.setVisibility(View.INVISIBLE);
                         ((AnimationDrawable) janta1.getBackground()).start();
@@ -249,6 +252,38 @@ public class scene1_1 extends AppCompatActivity {
                 ((AnimationDrawable) yotsawimon1.getBackground()).start();
             }
         }.start();
+    }
+
+    public void stopPlaying() {
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        jantawee1.setBackgroundResource(R.drawable.animate_jantawee1_1);
+        yotsawimon1.setBackgroundResource(R.drawable.animate_yotsawimon1_1);
+        janta1.setBackgroundResource(R.drawable.animate_janta1_1);
+        ((AnimationDrawable) jantawee1.getBackground()).start();
+        ((AnimationDrawable) janta1.getBackground()).start();
+        ((AnimationDrawable) yotsawimon1.getBackground()).start();
+        word1.setVisibility(View.INVISIBLE);
+        word2.setVisibility(View.INVISIBLE);
+        word3.setVisibility(View.INVISIBLE);
     }
 }
 
