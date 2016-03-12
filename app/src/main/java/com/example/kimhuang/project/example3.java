@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 public class example3 extends Fragment {
-    ImageView figer, oldwomen;
+    ImageView figer3, oldwomen;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.example3, container, false);
 
         //figer
-        figer = (ImageView) rootView.findViewById(R.id.figer);
-        ((AnimationDrawable) figer.getBackground()).start();
+        figer3 = (ImageView) rootView.findViewById(R.id.figer3);
+        ((AnimationDrawable) figer3.getBackground()).start();
 
         //oldwomen
         oldwomen = (ImageView) rootView.findViewById(R.id.oldwomen);

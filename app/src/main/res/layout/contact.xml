@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.kimhuang.project.contact"
-    android:background="@drawable/scenc_index">
+    android:background="@drawable/scene_index">
 
 
     <LinearLayout

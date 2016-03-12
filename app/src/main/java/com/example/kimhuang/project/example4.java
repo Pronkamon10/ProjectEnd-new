@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 public class example4 extends Fragment {
-    ImageView figer, chicken;
+    ImageView figer4, chicken;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.example4, container, false);
 
         //figen
-        figer = (ImageView) rootView.findViewById(R.id.figer);
-        ((AnimationDrawable) figer.getBackground()).start();
+        figer4 = (ImageView) rootView.findViewById(R.id.figer4);
+        ((AnimationDrawable) figer4.getBackground()).start();
 
         //chicken
         chicken = (ImageView) rootView.findViewById(R.id.chicken);

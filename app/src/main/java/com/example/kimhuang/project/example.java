@@ -13,14 +13,14 @@ import android.widget.ImageView;
 
 public class example extends Fragment {
 
-    ImageView figer, janta1;
+    ImageView figer1, janta1;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.example, container, false);
 
         //arrow
-        figer = (ImageView) rootView.findViewById(R.id.figer);
-        ((AnimationDrawable) figer.getBackground()).start();
+        figer1 = (ImageView) rootView.findViewById(R.id.figer1);
+        ((AnimationDrawable) figer1.getBackground()).start();
 
         //janta
         janta1 = (ImageView) rootView.findViewById(R.id.janta1);
